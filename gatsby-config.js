@@ -19,6 +19,14 @@ module.exports = {
     siteUrl: `https://junorp.com/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit: {
+          id: "trc4otl",
+        },
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     {

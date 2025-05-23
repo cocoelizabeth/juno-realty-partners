@@ -43,12 +43,15 @@ const GlobalStyles = createGlobalStyle`
     --space-xl: 4rem;
 
     /* Typography */
-    --font-body: system-ui, sans-serif;
-    --font-heading: Georgia, serif;
+    --font-body: "indivisible", system-ui, sans-serif;
+    --font-heading: "than", Georgia, serif;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.25rem;
     --font-size-xl: 1.5rem;
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
 
     /* Breakpoints */
     --bp-sm: 480px;
@@ -67,10 +70,16 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--font-body);
     background: var(--color-light);
     color: var(--color-dark);
+    font-weight: var(--font-weight-regular);
   }
 
   h1 {
-    font-family: var(--font-heading)
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-regular);
+  }
+
+  p {
+    font-weight: var(--font-weight-regular);
   }
   
 `;

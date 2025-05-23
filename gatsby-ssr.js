@@ -4,9 +4,19 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
  */
 
-/**
- * @type {import('gatsby').GatsbySSR['onRenderBody']}
- */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
+const React = require("react")
+
+/** @type {import('gatsby').GatsbySSR['onRenderBody']} */
+exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
+  // Set the <html lang="en">
+  setHtmlAttributes({ lang: "en" })
+
+  // Inject the Adobe Fonts stylesheet link
+  setHeadComponents([
+    <link
+      key="typekit"
+      rel="stylesheet"
+      href="https://use.typekit.net/trc4otl.css"
+    />,
+  ])
 }
