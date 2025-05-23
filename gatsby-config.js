@@ -19,6 +19,7 @@ module.exports = {
     siteUrl: `https://junorp.com/`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
