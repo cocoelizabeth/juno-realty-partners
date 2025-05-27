@@ -35,6 +35,12 @@ export const LogoLink = styled(Link)`
          height:var(--logo-height);
       }
     }
+    picture {
+      height: var(--logo-height);
+      img {
+        height: var(--logo-height);
+      }
+    }
   }
   img {
     height: var(--logo-height);
