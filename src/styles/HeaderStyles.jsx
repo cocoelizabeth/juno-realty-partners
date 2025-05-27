@@ -27,8 +27,16 @@ export const Inner = styled.div`
 
 export const LogoLink = styled(Link)`
   display: inline-block;
+  .header-logo {
+    height: var(--logo-height);
+    div {
+      height:var(--logo-height);
+      img {
+         height:var(--logo-height);
+      }
+    }
+  }
   img {
-    height: 40px;
     height: var(--logo-height);
   }
 `
