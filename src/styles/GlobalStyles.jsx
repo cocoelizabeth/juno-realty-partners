@@ -58,12 +58,30 @@ const GlobalStyles = createGlobalStyle`
     --bp-md: 768px;
     --bp-lg: 1024px;
     --bp-xl: 1200px;
+
+    /* Max Width */
+    --max-width: 1260px;
+
+    /* Navigation Styling */
+    --logo-height: 40px;
+    --nav-padding: var(--space-md);
+    --nav-height: calc(var(--logo-height)+(2*(var(--nav-padding))))
+  
+
+    /* Link Styling */
+    --nav-link-text-decoration: underline;
+    --nav-link-underline-offset: .4rem;
+    --nav-link-color: var(--color-dark);
   }
 
   *,*::before,*::after {
     margin:0;
     padding:0;
     box-sizing:border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;   /* hide anything that spills outside the viewport */
   }
 
   body {

@@ -7,10 +7,14 @@ import styled from "styled-components"
 // A wrapped content container to test theme spacing
 const Container = styled.div`
   padding: var(--space-lg);
-  max-width: 800px;
   margin: 0 auto;
   text-align: center;
   background-color: var(--primary);
+  padding-top: 72px;
+  height: 200vh;
+  background-color: #efefef;
+  width: 100%;
+
 `
 
 // A primary button to test your accent color
