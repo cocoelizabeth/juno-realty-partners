@@ -29,21 +29,23 @@ export const LogoLink = styled(Link)`
   display: inline-block;
   .header-logo {
     height: var(--logo-height);
+    width: auto;
     div {
       height:var(--logo-height);
+      width: auto;
       img {
          height:var(--logo-height);
+         width: auto;
       }
     }
     picture {
       height: var(--logo-height);
+      width: auto;
       img {
         height: var(--logo-height);
+        width: auto;
       }
     }
-  }
-  img {
-    height: var(--logo-height);
   }
 `
 
