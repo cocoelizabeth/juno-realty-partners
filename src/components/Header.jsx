@@ -94,18 +94,31 @@ export default function Header() {
 
         <Nav open={open}>
           <NavList>
-            {nav.links.map(link => (
-              <NavItem key={link.slug}>
-                <NavLink
-                  to={link.slug}
-                  activeClassName="active"
-                  onClick={() => setOpen(false)}
-                  isScrolled={isScrolled}
-                >
-                  {link.pageTitle}
-                </NavLink>
-              </NavItem>
-            ))}
+            {nav.links.map(link => {
+              // make sure slug starts with "/"
+              let path = link.slug.startsWith("/")
+                ? link.slug
+                : `/${link.slug}`
+              // if this is your “home” entry, force it to be "/"
+              if (
+                link.slug === "home" ||
+                link.pageTitle.toLowerCase() === "home"
+              ) {
+                path = "/"
+              }
+              return (
+                <NavItem key={link.slug}>
+                  <NavLink
+                    to={path}
+                    activeClassName="active"
+                    onClick={() => setOpen(false)}
+                    isScrolled={isScrolled}
+                  >
+                    {link.pageTitle}
+                  </NavLink>
+                </NavItem>
+              )
+            })}
           </NavList>
         </Nav>
       </Inner>

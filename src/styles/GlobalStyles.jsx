@@ -36,22 +36,37 @@ const GlobalStyles = createGlobalStyle`
 
     /* Spacing */
     --space-none: 0;
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
+    --space-xs: 20px;
+    --space-sm: 38px;
     --space-md: 1rem;
     --space-lg: 2rem;
     --space-xl: 4rem;
+    --section-side-padding: 66px;
+
+    @media only screen and (max-width: 768px) {
+      --space-xs: 10px;
+      --space-sm: 25px;
+      --section-side-padding: 25px;
+    }
 
     /* Typography */
     --font-body: "indivisible", system-ui, sans-serif;
     --font-heading: "than", Georgia, serif;
+    --font-size-xs: 10px;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.25rem;
-    --font-size-xl: 1.5rem;
+    --font-size-xl: 70px;
+    --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
+
+    @media only screen and (max-width: 768px) {
+      --font-size-xs: 8px;
+      --font-size-xl: 35px;
+    }
+
 
     /* Breakpoints */
     --bp-sm: 480px;
@@ -60,13 +75,14 @@ const GlobalStyles = createGlobalStyle`
     --bp-xl: 1200px;
 
     /* Max Width */
-    --max-width: 1260px;
+    --max-width: calc(1260px + (2*var(--section-side-padding)));
+    
 
     /* Navigation Styling */
     --logo-height: 40px;
-    --nav-padding: var(--space-md);
-    --nav-height: calc(var(--logo-height)+(2*(var(--nav-padding))))
-  
+    --nav-padding: var(--space-sm) var(--section-side-padding);
+    --nav-height: calc(var(--logo-height) + (2*(var(--space-sm))));
+   
 
     /* Link Styling */
     --nav-link-text-decoration: underline;
@@ -93,7 +109,7 @@ const GlobalStyles = createGlobalStyle`
 
   h1 {
     font-family: var(--font-heading);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-light);
   }
 
   p {

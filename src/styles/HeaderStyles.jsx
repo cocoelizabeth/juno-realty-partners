@@ -6,8 +6,6 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-
-  border-bottom: 1px solid var(--color-dark);
   z-index: 999;
 
   /* ➊ switch from transparent → white */
@@ -23,13 +21,17 @@ export const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: var(--nav-padding);
+  /* padding: 20px 30px; */
+  //here
 `
 
 export const LogoLink = styled(Link)`
   display: inline-block;
+
   .header-logo {
     height: var(--logo-height);
     width: auto;
+    /* margin: 17px 0; */
     div {
       height:var(--logo-height);
       width: auto;
@@ -80,8 +82,9 @@ export const NavList = styled.ul`
     flex-direction: column;
     gap: var(--space-lg);
     height: 100%;
-    /* background-color:pink; */
     padding: var(--space-lg);
+    padding-top: 0;
+    margin-top: var(--nav-height);
   }
 `
 
@@ -102,15 +105,16 @@ export const NavLink = styled(Link)`
   @media (max-width: 768px) {
     color: var(--color-light);
     font-size: var(--font-size-xl);
-    font-size: 5rem;
     margin: var(--space-lg);
     text-decoration: none;
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: var(--font-weight-light);
+    font-weight: 300;
+   
     &.active {
       border-bottom: 2px solid white;
       text-decoration: none;
-      font-weight: var(--font-weight-regular);
+      font-weight: var(--font-weight-light);
     }
   }
 `
@@ -124,12 +128,11 @@ export const MobileToggle = styled.button`
     color: var(--color-dark);
     font-size: 1.5rem;
     z-index: 1000;
-    // swap black and white hamburger menu based on scroll position
+    // hambuger menu is only black when the menu isScrolled and is notOpen
     color: ${props =>
-      props.isScrolled ? "var(--color-dark)" : "var(--color-light)"};
-    // swap black and white based on open prop (scrolled hamburger is black, close icon is white).
-    // Note: this must be after scroll position rule
-    color: ${props =>
-      props.open ? "var(--color-light)" : "var(--color-dark)"};
+      props.isScrolled && !props.open ? "var(--color-dark)" : "var(--color-light)"};
   }
 `
+
+
+
