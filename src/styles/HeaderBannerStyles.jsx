@@ -28,15 +28,17 @@ export const HeaderBannerStyles = styled.div`
     color: white;
     display: flex;
     align-items: center;
-    /* margin-top: var(--nav-height); */
+
     h1.hero-heading {
       font-size: var(--font-size-xl);
-      padding: var(--section-side-padding);
+      padding: var(--nav-padding);
+      padding-bottom: 0;
       max-width: var(--max-width);
       /* max-width: 1100px; */
       margin: 0 auto;
       width: 100%;
-      padding-bottom: 0;
+
+      margin-top: var(--nav-height);
     }
   }
 
@@ -47,39 +49,71 @@ export const HeaderBannerStyles = styled.div`
     width: 100%;
     display: flex;
     align-items: flex-end;
-    
+
     z-index: 2;
     p.footnote {
-        font-size: var(--font-size-sm);
-        color: white;
-        max-width: var(--max-width);
-        margin: 0 auto;
-        width: 100%;
-        padding: var(--space-xs) var(--section-side-padding);
-   
+      font-size: var(--font-size-sm);
+      color: white;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      padding: var(--space-xs) var(--section-side-padding);
     }
-    
   }
-  
-
-  // desktop height
+  // mobile break point
   .hero-image-container,
   .image-overlay,
   .heading-container,
   .footnote-container {
-    min-height: 700px;
-    height: 80vh;
-    
+    min-height: 300px;
+    height: 30vh;
   }
-  @media (max-width: 768px) {
-    // mobile-height
+
+
+  // small breakpoint
+  @media (min-width: 480px) {
     .hero-image-container,
     .image-overlay,
     .heading-container,
     .footnote-container {
-      min-height: 400px;
-      height: 40vh;
-   
+      min-height: 300px;
+      height: 50vh;
+    }
+    h1.hero-heading {
+        margin-top: 0;
+    }
+  }
+
+  // medium breakpoint
+  @media (min-width: 768px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
+    }
+  }
+
+  // large breakpoint
+  @media (min-width: 1024px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
+    }
+  }
+
+  // x-large breakpoint
+  @media (min-width: 1200px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
     }
   }
 `

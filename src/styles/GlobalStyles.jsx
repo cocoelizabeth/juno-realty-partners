@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
 
@@ -36,35 +36,37 @@ const GlobalStyles = createGlobalStyle`
 
     /* Spacing */
     --space-none: 0;
-    --space-xs: 20px;
-    --space-sm: 38px;
+    --space-xs: 10px;
+    --space-sm: 25px;
     --space-md: 1rem;
     --space-lg: 2rem;
     --space-xl: 4rem;
-    --section-side-padding: 66px;
+    --section-side-padding: 25px;
 
-    @media only screen and (max-width: 768px) {
-      --space-xs: 10px;
-      --space-sm: 25px;
-      --section-side-padding: 25px;
+
+    @media only screen and (min-width: 768px) {
+      --space-xs: 20px;
+      --space-sm: 38px;
+      --section-side-padding: 66px;
     }
 
     /* Typography */
     --font-body: "indivisible", system-ui, sans-serif;
     --font-heading: "than", Georgia, serif;
-    --font-size-xs: 10px;
-    --font-size-sm: 0.875rem;
+    --font-size-xs: 8px;
+    --font-size-sm: 10px;
     --font-size-md: 1rem;
     --font-size-lg: 1.25rem;
-    --font-size-xl: 70px;
+    --font-size-xl: 35px;
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
 
-    @media only screen and (max-width: 768px) {
-      --font-size-xs: 8px;
-      --font-size-xl: 35px;
+    @media only screen and (min-width: 768px) {
+      --font-size-xs: 10px;
+      --font-size-sm: 14px;
+      --font-size-xl: 70px;
     }
 
 
@@ -116,6 +118,6 @@ const GlobalStyles = createGlobalStyle`
     font-weight: var(--font-weight-regular);
   }
   
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

@@ -13,7 +13,7 @@ export const HeaderBannerStyles = styled.div`
     color: white;
     height: 100%;
     width: 100%;
-    z-index: 100;
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.55);
     top: 0;
   }
@@ -21,7 +21,8 @@ export const HeaderBannerStyles = styled.div`
   .heading-container {
     height: 100%;
     width: 100%;
-    z-index: 101;
+
+    z-index: 3;
     position: absolute;
     top: 0;
     color: white;
@@ -30,10 +31,13 @@ export const HeaderBannerStyles = styled.div`
 
     h1.hero-heading {
       font-size: var(--font-size-xl);
-      padding: var(--section-side-padding);
+      padding: 0 var(--section-side-padding);
       max-width: var(--max-width);
+      /* max-width: 1100px; */
       margin: 0 auto;
       width: 100%;
+      padding-bottom: 0;
+      margin-top: var(--nav-height);
     }
   }
 
@@ -44,36 +48,68 @@ export const HeaderBannerStyles = styled.div`
     width: 100%;
     display: flex;
     align-items: flex-end;
-    
-    z-index: 101;
-    p.footnote {
-        font-size: var(--font-size-sm);
-        color: white;
-        max-width: var(--max-width);
-        margin: 0 auto;
-        width: 100%;
-        padding: var(--space-xs) var(--section-side-padding);
-   
-    }
-    
-  }
 
-  // desktop height
+    z-index: 2;
+    p.footnote {
+      font-size: var(--font-size-sm);
+      color: white;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      padding: var(--space-xs) var(--section-side-padding);
+    }
+  }
+  // mobile break point
   .hero-image-container,
   .image-overlay,
   .heading-container,
   .footnote-container {
-    min-height: 700px;
-    height: 80vh;
+    min-height: 300px;
+    height: 30vh;
   }
-  @media (max-width: 768px) {
-    // mobile-height
+
+
+  // small breakpoint
+  @media (min-width: 480px) {
     .hero-image-container,
     .image-overlay,
     .heading-container,
     .footnote-container {
-      min-height: 400px;
-      height: 60vh;
+      min-height: 300px;
+      height: 30vh;
+    }
+  }
+
+  // medium breakpoint
+  @media (min-width: 768px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
+    }
+  }
+
+  // large breakpoint
+  @media (min-width: 1024px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
+    }
+  }
+
+  // x-large breakpoint
+  @media (min-width: 1200px) {
+    .hero-image-container,
+    .image-overlay,
+    .heading-container,
+    .footnote-container {
+      min-height: 700px;
+      height: 80vh;
     }
   }
 `

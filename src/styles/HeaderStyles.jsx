@@ -55,7 +55,7 @@ export const Nav = styled.nav`
   display: flex;
   gap: var(--space-md);
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     position: fixed;
     top: 0;
     right: 0;
@@ -78,7 +78,7 @@ export const NavList = styled.ul`
   display: flex;
   gap: var(--space-lg);
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     flex-direction: column;
     gap: var(--space-lg);
     height: 100%;
@@ -102,7 +102,7 @@ export const NavLink = styled(Link)`
     opacity: 0.5;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     color: var(--color-light);
     font-size: var(--font-size-xl);
     margin: var(--space-lg);
@@ -121,7 +121,7 @@ export const NavLink = styled(Link)`
 
 export const MobileToggle = styled.button`
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: block;
     background: none;
     border: none;
