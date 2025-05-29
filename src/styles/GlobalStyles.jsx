@@ -104,14 +104,14 @@ const GlobalStyles = createGlobalStyle`
     
 
     /* Navigation Styling */
-
+    --logo-height: 30px;
     --nav-padding: var(--space-sm) var(--section-side-padding);
     --nav-height: calc(var(--logo-height) + (2*(var(--space-sm))));
     --nav-height-minus-bottom-padding: calc(var(--nav-height) - var(--space-sm));
 
 
-    @media only screen and (min-width: 480px) {
-         --logo-height: 30px;
+    @media only screen and (min-width: 768px) {
+      --logo-height: 40px;
     }
 
    
