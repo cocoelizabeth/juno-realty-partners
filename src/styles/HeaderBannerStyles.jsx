@@ -38,7 +38,8 @@ export const HeaderBannerStyles = styled.div`
       margin: 0 auto;
       width: 100%;
 
-      margin-top: var(--nav-height);
+      margin-top: var(--nav-height-minus-bottom-padding);
+      padding-top: 0;
     }
   }
 
@@ -76,7 +77,7 @@ export const HeaderBannerStyles = styled.div`
     .image-overlay,
     .heading-container,
     .footnote-container {
-      min-height: 300px;
+      min-height: 400px;
       height: 50vh;
     }
     h1.hero-heading {
@@ -90,10 +91,13 @@ export const HeaderBannerStyles = styled.div`
     .image-overlay,
     .heading-container,
     .footnote-container {
-      min-height: 700px;
-      height: 80vh;
+      min-height: 500px;
+      height: 70vh;
+
     }
   }
+
+  
 
   // large breakpoint
   @media (min-width: 1024px) {
@@ -101,7 +105,7 @@ export const HeaderBannerStyles = styled.div`
     .image-overlay,
     .heading-container,
     .footnote-container {
-      min-height: 700px;
+      min-height: 600px;
       height: 80vh;
     }
   }
@@ -114,6 +118,27 @@ export const HeaderBannerStyles = styled.div`
     .footnote-container {
       min-height: 700px;
       height: 80vh;
+
+  }
+}
+
+  @media (min-width: 1235px) {
+        
+    .heading-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: var(--nav-padding);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    h1.hero-heading {
+        max-width: 1050px;
+        margin-left: 0;
+        padding: 0;
     }
   }
+  }
+
 `

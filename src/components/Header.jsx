@@ -48,7 +48,9 @@ export default function Header() {
         nodes {
           logo {
             description
-            gatsbyImageData
+            gatsbyImageData (
+              placeholder: NONE
+            )
           }
           alternateLogo {
             description
@@ -81,6 +83,7 @@ export default function Header() {
             image={isScrolled ? scrolledLogo : initialLogo}
             alt={isScrolled ? initialAltText : scrolledAltText}
             className="header-logo"
+            loading="eager"
           />
         </LogoLink>
 

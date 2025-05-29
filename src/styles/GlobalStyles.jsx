@@ -43,6 +43,12 @@ const GlobalStyles = createGlobalStyle`
     --space-xl: 4rem;
     --section-side-padding: 25px;
 
+    @media only screen and (min-width: 480px) {
+      --space-xs: 20px;
+      --space-sm: 38px;
+      --section-side-padding: 38px;
+    }
+
 
     @media only screen and (min-width: 768px) {
       --space-xs: 20px;
@@ -63,11 +69,28 @@ const GlobalStyles = createGlobalStyle`
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
 
+    @media only screen and (min-width: 480px) {
+      --font-size-xs: 10px;
+      --font-size-xl: 45px;
+    }
+
     @media only screen and (min-width: 768px) {
+
+      --font-size-sm: 14px;
+      --font-size-xl: 50px;
+    }
+
+    @media only screen and (min-width: 928px) {
+      --font-size-xl: 56px;
+    }
+
+    @media only screen and (min-width: 1024px) {
       --font-size-xs: 10px;
       --font-size-sm: 14px;
       --font-size-xl: 70px;
     }
+
+
 
 
     /* Breakpoints */
@@ -81,9 +104,16 @@ const GlobalStyles = createGlobalStyle`
     
 
     /* Navigation Styling */
-    --logo-height: 40px;
+
     --nav-padding: var(--space-sm) var(--section-side-padding);
     --nav-height: calc(var(--logo-height) + (2*(var(--space-sm))));
+    --nav-height-minus-bottom-padding: calc(var(--nav-height) - var(--space-sm));
+
+
+    @media only screen and (min-width: 480px) {
+         --logo-height: 30px;
+    }
+
    
 
     /* Link Styling */
