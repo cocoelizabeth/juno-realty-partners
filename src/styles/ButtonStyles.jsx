@@ -15,3 +15,18 @@ export const PrimaryButton = styled(Link)`
   line-height: 1.7;
   /* your CTA button styling */
 `
+
+export const SecondaryButton = styled(Link)`
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  display: inline-block;
+  font-size: var(--font-size-button);
+  color: var(--color-light);
+  border-bottom: 1px solid var(--color-light);
+  cursor: pointer;
+  line-height: 1.7;
+ width: fit-content;
+  /* your CTA button styling */
+`

@@ -4,13 +4,17 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import HeaderBanner from "../components/HeaderBanner"
 import CenteredCTASection from "../components/sections/CenteredCTASection"
+import FeaturedProjectsSection from "../components/sections/FeaturedProjectsSection"
 
-export default function LandingPage({ data }) {
+export default function LandingPage({ data, pageContext }) {
+    
   const landingPage = data.contentfulLandingPage
 //   const seoMetadata = data.contentfulLandingPage.seoMetadata
 
   const { pageTitle, headerBanner, seoMetadata, contentSections } =
     data.contentfulLandingPage
+    
+    const currentSlug = pageContext.slug
 
   return (
     <Layout>
@@ -26,6 +30,7 @@ export default function LandingPage({ data }) {
       <HeaderBanner banner={headerBanner} />
 
       {contentSections.map(section => {
+ 
         switch (section.sectionType) {
           case "CenteredCTA":
             return (
@@ -44,8 +49,18 @@ export default function LandingPage({ data }) {
         //     return <StatsFeaturesSection key={section.internalName} {...section} />
         //   case "Leadership":
         //     return <LeadershipSection key={section.internalName} {...section} />
-        //   case "FeaturedProjects":
-        //     return <FeaturedProjectsSection key={section.internalName} {...section} />
+          case "FeaturedProjects":
+            return <FeaturedProjectsSection 
+                key={section.internalName}
+                sectionHeading={section.heading}
+                showHeading={currentSlug !== "portfolio"}
+                projects={section.projects}
+                currentSlug={pageContext.slug}
+                ctaText={section.ctaText}
+                ctaUrl = {section.ctaUrl || ""}
+                showCTA={currentSlug !== "portfolio"}
+                
+            />
           default:
             return null
         }
@@ -99,6 +114,28 @@ export const query = graphql`
             heading
             body { raw }
           }
+        projects {
+            id
+            contentful_id
+            internalName
+            projectNameForCaseStudy
+            caseStudyTitle
+            slug
+            case_study {
+                contentful_id
+            }
+            project {
+                heroImage {
+                    description
+                    gatsbyImageData
+                }
+                type
+                units
+                location
+                featuredProject
+            }
+            
+        }
         }
       }
     }

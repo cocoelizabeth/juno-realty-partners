@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const HeaderBannerStyles = styled.div`
+margin-bottom: 80px;
   .hero-image-container {
     position: relative;
     .hero-image {

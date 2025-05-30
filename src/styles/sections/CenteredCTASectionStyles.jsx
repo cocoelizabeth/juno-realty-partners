@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 export const SectionWrapper = styled.section`
   text-align: center;
   padding: var(--space-xl) var(--section-side-padding);
+  padding-top: 0;
   max-width: var(--max-width);
   display: flex;
   flex-direction: column;

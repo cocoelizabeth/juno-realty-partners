@@ -54,7 +54,9 @@ export default function Header() {
           }
           alternateLogo {
             description
-            gatsbyImageData
+            gatsbyImageData (
+              placeholder: NONE
+            )
           }
           links {
             ... on ContentfulLandingPage {

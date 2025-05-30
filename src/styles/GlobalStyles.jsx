@@ -94,6 +94,10 @@ const GlobalStyles = createGlobalStyle`
       --font-size-xl: 70px;
     }
 
+    @media only screen and (min-width: 1200px) {
+
+    }
+
 
 
 
@@ -130,6 +134,7 @@ const GlobalStyles = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
+    /* -webkit-font-smoothing: antialiased; */
   }
 
   html, body {
@@ -141,29 +146,34 @@ const GlobalStyles = createGlobalStyle`
     background: var(--color-light);
     color: var(--color-dark);
     font-weight: var(--font-weight-regular);
-        -webkit-font-smoothing: antialiased;
+        
 
+  }
+
+  h1, h2, h3, h4 {
+     text-rendering: optimizeLegibility;
   }
 
   h1,
   h2 {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-regular);
-    line-height: 1.2;
-        -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    
 
   }
 
   h2 {
     font-size: var(--font-size-lg)
   }
+  
 
   p {
     font-weight: var(--font-weight-regular);
     font-size: var(--font-size-body);
     line-height: 1.7;
     word-wrap: break-word;
-    -webkit-font-smoothing: antialiased;
+    
 
   }
   
