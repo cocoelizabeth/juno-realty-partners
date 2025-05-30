@@ -42,6 +42,7 @@ const GlobalStyles = createGlobalStyle`
     --space-lg: 2rem;
     --space-xl: 80px;
     --section-side-padding: 25px;
+    --space-gap: 20px;
 
     @media only screen and (min-width: 480px) {
       --space-xs: 20px;
@@ -66,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-md: 1rem;
     --font-size-lg: 24px;
     --font-size-xl: 35px;
+    --font-size-statistic: 62px;
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-semi-bold: 600;
@@ -82,6 +84,7 @@ const GlobalStyles = createGlobalStyle`
       --font-size-sm: 14px;
       --font-size-lg: 2.1em;
       --font-size-xl: 50px;
+      --font-size-statistic: 80px;
     }
 
     @media only screen and (min-width: 928px) {

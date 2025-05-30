@@ -22,7 +22,7 @@ export const FeaturedProjectItemWrapper = styled.article`
   }
 
   @media only screen and (min-width: 768px) {
-    margin-bottom: 20px;
+    margin-bottom: var(--space-gap);
     /* &:nth-of-type(even) {
       .featured-project-image-wrapper {
         align-self: flex-end;

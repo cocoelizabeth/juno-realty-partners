@@ -5,16 +5,16 @@ import Seo from "../components/Seo"
 import HeaderBanner from "../components/HeaderBanner"
 import CenteredCTASection from "../components/sections/CenteredCTASection"
 import FeaturedProjectsSection from "../components/sections/FeaturedProjectsSection"
+import WhyLandownersChooseUsSection from "../components/sections/WhyLandownersChooseUsSection"
 
 export default function LandingPage({ data, pageContext }) {
-    
   const landingPage = data.contentfulLandingPage
-//   const seoMetadata = data.contentfulLandingPage.seoMetadata
+  //   const seoMetadata = data.contentfulLandingPage.seoMetadata
 
   const { pageTitle, headerBanner, seoMetadata, contentSections } =
     data.contentfulLandingPage
-    
-    const currentSlug = pageContext.slug
+
+  const currentSlug = pageContext.slug;
 
   return (
     <Layout>
@@ -30,42 +30,53 @@ export default function LandingPage({ data, pageContext }) {
       <HeaderBanner banner={headerBanner} />
 
       {contentSections.map(section => {
- 
         switch (section.sectionType) {
           case "CenteredCTA":
             return (
-                <CenteredCTASection 
-                    key={section.internalName}
-                    heading={section.heading || ""}
-                    // subheading={section.subheading || ""}
-                    body = {section.body}
-                    ctaText={section.ctaText || ""}
-                    ctaUrl = {section.ctaUrl || ""}
-
+              <CenteredCTASection
+                key={section.internalName}
+                heading={section.heading || ""}
+                // subheading={section.subheading || ""}
+                body={section.body}
+                ctaText={section.ctaText || ""}
+                ctaUrl={section.ctaUrl || ""}
               />
             )
-            
-        //   case "StatsFeatures":
-        //     return <StatsFeaturesSection key={section.internalName} {...section} />
-        //   case "Leadership":
-        //     return <LeadershipSection key={section.internalName} {...section} />
           case "FeaturedProjects":
-            return <FeaturedProjectsSection 
+            return (
+              <FeaturedProjectsSection
                 key={section.internalName}
                 sectionHeading={section.heading}
                 showHeading={currentSlug !== "portfolio"}
                 projects={section.projects}
                 currentSlug={pageContext.slug}
                 ctaText={section.ctaText}
-                ctaUrl = {section.ctaUrl || ""}
+                ctaUrl={section.ctaUrl || ""}
                 showCTA={currentSlug !== "portfolio"}
+              />
+            )
+        case "WhyLandownersChooseUs":
+            return (
+                <WhyLandownersChooseUsSection
+                    key={section.internalName}
+                    sectionHeading={section.heading} 
+                    reasonFeatures={section.features}
+                    stats={section.stats}
+                    statsDisclaimer={section.statsDisclaimer}
                 
-            />
+                />
+
+            )
+
+          //   case "StatsFeatures":
+          //     return <StatsFeaturesSection key={section.internalName} {...section} />
+          //   case "Leadership":
+          //     return <LeadershipSection key={section.internalName} {...section} />
+
           default:
             return null
         }
       })}
-  
     </Layout>
   )
 }
@@ -98,7 +109,9 @@ export const query = graphql`
           internalName
           sectionType
           heading
-          body { raw }
+          body {
+            raw
+          }
           ctaText
           ctaUrl
 
@@ -112,9 +125,11 @@ export const query = graphql`
           features {
             internalName
             heading
-            body { raw }
+            body {
+              raw
+            }
           }
-        projects {
+          projects {
             id
             contentful_id
             internalName
@@ -122,20 +137,19 @@ export const query = graphql`
             caseStudyTitle
             slug
             case_study {
-                contentful_id
+              contentful_id
             }
             project {
-                heroImage {
-                    description
-                    gatsbyImageData
-                }
-                type
-                units
-                location
-                featuredProject
+              heroImage {
+                description
+                gatsbyImageData
+              }
+              type
+              units
+              location
+              featuredProject
             }
-            
-        }
+          }
         }
       }
     }

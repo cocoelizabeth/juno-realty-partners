@@ -34,6 +34,6 @@ export const FeaturedProjectsItemsWrapper = styled.div`
 
   @media only screen and (min-width: 1024px) {
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: var(--space-gap);
   }
 `

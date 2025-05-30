@@ -93,7 +93,7 @@ export const NavItem = styled.li``
 export const NavLink = styled(Link)`
   color: ${props =>
     props.isScrolled ? "var(--color-dark)" : "var(--color-light)"};
-  transition: fill 0.3s ease;
+  /* transition: fill 0.3s ease; */
   text-decoration: none;
   &.active {
     font-weight: var(--font-weight-semi-bold);
