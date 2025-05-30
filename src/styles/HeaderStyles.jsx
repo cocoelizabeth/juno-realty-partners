@@ -96,7 +96,7 @@ export const NavLink = styled(Link)`
   transition: fill 0.3s ease;
   text-decoration: none;
   &.active {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semi-bold);
   }
   &:hover {
     opacity: 0.5;

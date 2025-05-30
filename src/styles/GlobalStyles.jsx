@@ -38,9 +38,9 @@ const GlobalStyles = createGlobalStyle`
     --space-none: 0;
     --space-xs: 10px;
     --space-sm: 25px;
-    --space-md: 1rem;
+    --space-md: 30px;
     --space-lg: 2rem;
-    --space-xl: 4rem;
+    --space-xl: 80px;
     --section-side-padding: 25px;
 
     @media only screen and (min-width: 480px) {
@@ -59,10 +59,12 @@ const GlobalStyles = createGlobalStyle`
     /* Typography */
     --font-body: "indivisible", system-ui, sans-serif;
     --font-heading: "than", Georgia, serif;
+    --font-size-body: 15px;
+    --font-size-button: 13px;
     --font-size-xs: 8px;
     --font-size-sm: 10px;
     --font-size-md: 1rem;
-    --font-size-lg: 1.25rem;
+    --font-size-lg: 24px;
     --font-size-xl: 35px;
     --font-weight-light: 300;
     --font-weight-regular: 400;
@@ -71,12 +73,14 @@ const GlobalStyles = createGlobalStyle`
 
     @media only screen and (min-width: 480px) {
       --font-size-xs: 10px;
+      --font-size-lg: 26px;
       --font-size-xl: 45px;
     }
 
     @media only screen and (min-width: 768px) {
 
       --font-size-sm: 14px;
+      --font-size-lg: 2.1em;
       --font-size-xl: 50px;
     }
 
@@ -137,15 +141,30 @@ const GlobalStyles = createGlobalStyle`
     background: var(--color-light);
     color: var(--color-dark);
     font-weight: var(--font-weight-regular);
+        -webkit-font-smoothing: antialiased;
+
   }
 
-  h1 {
+  h1,
+  h2 {
     font-family: var(--font-heading);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.2;
+        -webkit-font-smoothing: antialiased;
+
+  }
+
+  h2 {
+    font-size: var(--font-size-lg)
   }
 
   p {
     font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-body);
+    line-height: 1.7;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+
   }
   
 `

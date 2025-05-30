@@ -3,10 +3,14 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import HeaderBanner from "../components/HeaderBanner"
+import CenteredCTASection from "../components/sections/CenteredCTASection"
 
 export default function LandingPage({ data }) {
   const landingPage = data.contentfulLandingPage
-  const seoMetadata = data.contentfulLandingPage.seoMetadata
+//   const seoMetadata = data.contentfulLandingPage.seoMetadata
+
+  const { pageTitle, headerBanner, seoMetadata, contentSections } =
+    data.contentfulLandingPage
 
   return (
     <Layout>
@@ -19,10 +23,34 @@ export default function LandingPage({ data }) {
         nofollow={seoMetadata.nofollow}
       /> */}
 
-      <HeaderBanner banner={landingPage.headerBanner} />
-      {/* <HeaderBanner banner={landingPage.headerBanner} />
-      <HeaderBanner banner={landingPage.headerBanner} /> */}
-      <main>{/* render landingPage.fields here */}</main>
+      <HeaderBanner banner={headerBanner} />
+
+      {contentSections.map(section => {
+        switch (section.sectionType) {
+          case "CenteredCTA":
+            return (
+                <CenteredCTASection 
+                    key={section.internalName}
+                    heading={section.heading || ""}
+                    // subheading={section.subheading || ""}
+                    body = {section.body}
+                    ctaText={section.ctaText || ""}
+                    ctaUrl = {section.ctaUrl || ""}
+
+              />
+            )
+            
+        //   case "StatsFeatures":
+        //     return <StatsFeaturesSection key={section.internalName} {...section} />
+        //   case "Leadership":
+        //     return <LeadershipSection key={section.internalName} {...section} />
+        //   case "FeaturedProjects":
+        //     return <FeaturedProjectsSection key={section.internalName} {...section} />
+          default:
+            return null
+        }
+      })}
+  
     </Layout>
   )
 }
@@ -36,7 +64,7 @@ export const query = graphql`
         footnote
         heroImage {
           description
-          gatsbyImageData (layout: FULL_WIDTH)
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       seoMetadata {
@@ -48,6 +76,30 @@ export const query = graphql`
         }
         noindex
         nofollow
+      }
+      contentSections {
+        __typename
+        ... on ContentfulPageSection {
+          internalName
+          sectionType
+          heading
+          body { raw }
+          ctaText
+          ctaUrl
+
+          stats {
+            internalName
+            label
+            value
+          }
+          statsDisclaimer
+
+          features {
+            internalName
+            heading
+            body { raw }
+          }
+        }
       }
     }
   }
