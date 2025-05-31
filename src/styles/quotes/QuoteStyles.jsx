@@ -29,7 +29,8 @@ export const QuoteSingularSectionWrapper = styled.section`
 
   .quotation-svg {
     margin-bottom: 30px;
-    height: 25px;
+    height: 40px;
+    height: 30px;
   }
 
   .quote {
@@ -41,7 +42,7 @@ export const QuoteSingularSectionWrapper = styled.section`
       margin: 0 auto;
       margin-bottom: 30px;
       max-width: 750px;
-
+           font-size: var(--font-size-lg);
     @media only screen and (min-width: 928px) {
            font-size: var(--font-size-lg);
     }

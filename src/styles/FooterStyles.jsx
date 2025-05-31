@@ -46,6 +46,7 @@ export const LogoLink = styled(Link)`
   .footer-logo img {
     object-fit: contain;
     height: 50px;
+    width: auto;
   }
 `
 
