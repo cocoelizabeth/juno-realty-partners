@@ -8,6 +8,10 @@ export const ReasonItemWrapper = styled.div`
   border-left: 4px solid var(--color-accent);
   padding-left: var(--space-gap);
 
+  &:last-of-type {
+   margin-bottom: 0;
+  }
+
   // small breakpoint
   @media (min-width: 480px) {
     max-width: 550px;
