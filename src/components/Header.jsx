@@ -33,6 +33,19 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize)
   }, [open])
 
+  // Prevent background scrolling when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    // Clean up on unmount too
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [open])
+
   // On scroll, flip isScrolled when you’ve moved down
   useEffect(() => {
     const handler = () => setIsScrolled(window.scrollY > 0)
@@ -48,15 +61,11 @@ export default function Header() {
         nodes {
           logo {
             description
-            gatsbyImageData (
-              placeholder: NONE
-            )
+            gatsbyImageData(placeholder: NONE)
           }
           alternateLogo {
             description
-            gatsbyImageData (
-              placeholder: NONE
-            )
+            gatsbyImageData(placeholder: NONE)
           }
           links {
             ... on ContentfulLandingPage {
@@ -101,9 +110,7 @@ export default function Header() {
           <NavList>
             {nav.links.map(link => {
               // make sure slug starts with "/"
-              let path = link.slug.startsWith("/")
-                ? link.slug
-                : `/${link.slug}`
+              let path = link.slug.startsWith("/") ? link.slug : `/${link.slug}`
               // if this is your “home” entry, force it to be "/"
               if (
                 link.slug === "home" ||
