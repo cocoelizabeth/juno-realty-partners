@@ -36,13 +36,20 @@ export default function Header() {
   // Prevent background scrolling when menu is open
   useEffect(() => {
     if (open) {
+      console.log(open)
       document.body.style.overflow = "hidden"
+      document.body.style.position = "fixed"
+      document.body.style.width = "100%"
     } else {
       document.body.style.overflow = ""
+      document.body.style.position = ""
+      document.body.style.width = ""
     }
     // Clean up on unmount too
     return () => {
       document.body.style.overflow = ""
+      document.body.style.position = ""
+      document.body.style.width = ""
     }
   }, [open])
 

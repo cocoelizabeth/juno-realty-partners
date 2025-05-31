@@ -41,6 +41,7 @@ margin-bottom: var(--space-xl);
 
       margin-top: var(--nav-height-minus-bottom-padding);
       padding-top: 0;
+      line-height: 1.2;
     }
   }
 

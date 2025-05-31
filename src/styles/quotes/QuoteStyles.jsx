@@ -21,10 +21,8 @@ export const QuoteSingularSectionWrapper = styled.section`
     padding: 40px var(--section-side-padding);
 
     @media only screen and (min-width: 928px) {
-        padding: var(--space-xl) var(--section-side-padding);
+      padding: var(--space-xl) var(--section-side-padding);
     }
-    
-
   }
 
   .quotation-svg {
@@ -35,17 +33,16 @@ export const QuoteSingularSectionWrapper = styled.section`
 
   .quote {
     p {
-
-        font-size: 20px;
+      font-size: 20px;
       font-family: var(--font-heading);
       line-height: 1.4;
       margin: 0 auto;
       margin-bottom: 30px;
       max-width: 750px;
-           font-size: var(--font-size-lg);
-    @media only screen and (min-width: 928px) {
-           font-size: var(--font-size-lg);
-    }
+      font-size: var(--font-size-lg);
+      @media only screen and (min-width: 928px) {
+        font-size: var(--font-size-lg);
+      }
     }
   }
   .speaker {
