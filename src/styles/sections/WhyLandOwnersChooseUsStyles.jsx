@@ -4,6 +4,7 @@ export const WhyLandownersChooseUsSectionWrapper = styled.section`
   padding: var(--space-xl) var(--section-side-padding);
   padding-top: 0;
   max-width: var(--max-width);
+  margin: 0 auto;
 
 `
 

@@ -6,6 +6,7 @@ import HeaderBanner from "../components/HeaderBanner"
 import CenteredCTASection from "../components/sections/CenteredCTASection"
 import FeaturedProjectsSection from "../components/sections/FeaturedProjectsSection"
 import WhyLandownersChooseUsSection from "../components/sections/WhyLandownersChooseUsSection"
+import QuoteSingularBlock from "../components/quotes/QuoteSingular"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -14,7 +15,9 @@ export default function LandingPage({ data, pageContext }) {
   const { pageTitle, headerBanner, seoMetadata, contentSections } =
     data.contentfulLandingPage
 
-  const currentSlug = pageContext.slug;
+  const currentSlug = pageContext.slug
+
+
 
   return (
     <Layout>
@@ -30,6 +33,7 @@ export default function LandingPage({ data, pageContext }) {
       <HeaderBanner banner={headerBanner} />
 
       {contentSections.map(section => {
+        
         switch (section.sectionType) {
           case "CenteredCTA":
             return (
@@ -55,18 +59,33 @@ export default function LandingPage({ data, pageContext }) {
                 showCTA={currentSlug !== "portfolio"}
               />
             )
-        case "WhyLandownersChooseUs":
+          case "WhyLandownersChooseUs":
             return (
-                <WhyLandownersChooseUsSection
-                    key={section.internalName}
-                    sectionHeading={section.heading} 
-                    reasonFeatures={section.features}
-                    stats={section.stats}
-                    statsDisclaimer={section.statsDisclaimer}
-                
-                />
-
+              <WhyLandownersChooseUsSection
+                key={section.internalName}
+                sectionHeading={section.heading}
+                reasonFeatures={section.features}
+                stats={section.stats}
+                statsDisclaimer={section.statsDisclaimer}
+              />
             )
+          case "QuoteSingular":
+            return (
+                <QuoteSingularBlock
+                    key={section.quotes[0].internalName}
+                    body={section.quotes[0].body}
+                    speaker={section.quotes[0].speaker}
+                    type={section.quotes[0].type}
+                />
+            )
+          // case "QuoteSlider":
+          //     return (
+          //         <></>
+          //     )
+          // case "Accordian":
+          //     return (
+          //         <></>
+          //     )
 
           //   case "StatsFeatures":
           //     return <StatsFeaturesSection key={section.internalName} {...section} />
@@ -128,6 +147,12 @@ export const query = graphql`
             body {
               raw
             }
+          }
+          quotes {
+            internalName
+            body {raw}
+            speaker
+            style
           }
           projects {
             id
