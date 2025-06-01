@@ -7,6 +7,7 @@ import CenteredCTASection from "../components/sections/CenteredCTASection"
 import FeaturedProjectsSection from "../components/sections/FeaturedProjectsSection"
 import WhyLandownersChooseUsSection from "../components/sections/WhyLandownersChooseUsSection"
 import QuoteSingularBlock from "../components/quotes/QuoteSingular"
+import StatsFeaturesSection from "../components/sections/StatsFeaturesSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -87,8 +88,8 @@ export default function LandingPage({ data, pageContext }) {
           //         <></>
           //     )
 
-          //   case "StatsFeatures":
-          //     return <StatsFeaturesSection key={section.internalName} {...section} />
+            case "StatsFeatures":
+              return <StatsFeaturesSection key={section.internalName} stats={section.stats} statsDisclaimer={section.statsDisclaimer}/>
           //   case "Leadership":
           //     return <LeadershipSection key={section.internalName} {...section} />
 

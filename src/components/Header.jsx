@@ -36,7 +36,6 @@ export default function Header() {
   // Prevent background scrolling when menu is open
   useEffect(() => {
     if (open) {
-      console.log(open)
       document.body.style.overflow = "hidden"
       document.body.style.position = "fixed"
       document.body.style.width = "100%"

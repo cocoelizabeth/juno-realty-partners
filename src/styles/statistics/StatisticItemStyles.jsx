@@ -6,7 +6,7 @@ export const StatisticItemWrapper = styled.div`
   text-align: center;
   line-height: 1.7;
   padding: var(--space-gap) 0;
-  
+
   @media only screen and (min-width: 480px) {
   }
 
@@ -56,3 +56,5 @@ export const StatsDisclaimer = styled.div`
     padding-right: var(--space-gap);
   }
 `
+
+

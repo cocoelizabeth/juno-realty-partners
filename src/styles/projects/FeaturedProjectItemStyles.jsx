@@ -58,11 +58,7 @@ export const ProjectImageLink = styled(Link)`
     z-index: 2;
   }
 
-  /* @media only screen and (min-width: 928px) {
-        width: 80%;
-        align-self: flex-start;
-        z-index: 2;
-    } */
+
 
   @media only screen and (min-width: 1024px) {
     width: 100%;
@@ -93,17 +89,19 @@ export const FeaturedProjectTextWrapper = styled(Link)`
     max-width: 100%;
     margin-bottom: 30px;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: var(--font-weight-light);
   }
 
   p.featured-project-location {}
 
   p.featured-case-study-title {
+          font-weight: var(--font-weight-regular);
     &:after {
       content: "→";
       margin-left: 5px;
       display: inline-block;
       transition: transform 0.3 ease;
+
     }
   }
 
