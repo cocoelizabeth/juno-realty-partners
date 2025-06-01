@@ -7,13 +7,13 @@ import {
 } from "../../styles/sections/CenteredCTASectionStyles"
 import { PrimaryButton } from "../../styles/ButtonStyles"
 
-export default function CenteredCTASection({ heading, body, ctaText, ctaUrl }) {
+export default function CenteredCTASection({ heading, body, ctaText, ctaUrl, currentSlug }) {
   const hasBody = Boolean(body?.raw)
 
   let path = ctaUrl.startsWith("/") ? ctaUrl : `/${ctaUrl}`
 
   return (
-    <SectionWrapper>
+    <SectionWrapper currentSlug={currentSlug}>
       {heading && <Title>{heading}</Title>}
       {/* only render <Body> if there's actual rich‐text JSON */}
       {hasBody && (

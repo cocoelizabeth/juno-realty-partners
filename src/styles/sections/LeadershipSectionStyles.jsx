@@ -5,6 +5,7 @@ export const LeadershipSectionWrapper = styled.section`
   padding-top: 0;
   max-width: var(--max-width);
   margin: 0 auto;
+
 `;
 
 export const SectionHeading = styled.h2`

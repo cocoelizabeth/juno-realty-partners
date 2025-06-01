@@ -8,7 +8,7 @@ export const StatsFeaturesSectionWrapper = styled.div`
   margin: 0 auto;
   /* margin-top: -30px; */
   @media only screen and (min-width: 1024px) {
-      max-width: 1200px;
+      /* max-width: 1200px; */
   }
 `
 export const StatsWrapper = styled.div`

@@ -64,7 +64,13 @@ export const NameAndTitle = styled.div`
   }
   .team-member-title {
     font-weight: var(--font-weight-semi-bold);
-    font-size: 1.17em;
+
+  }
+
+    @media only screen and (min-width: 1200px) {
+    p {
+            font-size: 1.17em;
+    }
   }
 `
 export const ContactInfo = styled.div`
@@ -81,13 +87,14 @@ export const ContactInfo = styled.div`
   }
   .contact-item-link {
     color: var(--color-dark);
-    font-weight: var(--font-weight-light);
-    text-decoration: none;
+    font-weight: var(--font-weight-regular);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   @media only screen and (min-width: 1200px) {
     p {
-        padding-bottom: 0;
+        /* padding-bottom: 0; */
     }
   }
 `

@@ -9,6 +9,7 @@ import WhyLandownersChooseUsSection from "../components/sections/WhyLandownersCh
 import QuoteSingularBlock from "../components/quotes/QuoteSingular"
 import StatsFeaturesSection from "../components/sections/StatsFeaturesSection"
 import LeadershipSection from "../components/sections/LeadershipSection"
+import AccordionSection from "../components/sections/AccordionSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -18,7 +19,6 @@ export default function LandingPage({ data, pageContext }) {
     data.contentfulLandingPage
 
   const currentSlug = pageContext.slug
-
 
 
   return (
@@ -35,7 +35,7 @@ export default function LandingPage({ data, pageContext }) {
       <HeaderBanner banner={headerBanner} />
 
       {contentSections.map(section => {
-        
+
         switch (section.sectionType) {
           case "CenteredCTA":
             return (
@@ -46,6 +46,7 @@ export default function LandingPage({ data, pageContext }) {
                 body={section.body}
                 ctaText={section.ctaText || ""}
                 ctaUrl={section.ctaUrl || ""}
+                currentSlug={pageContext.slug}
               />
             )
           case "FeaturedProjects":
@@ -80,14 +81,18 @@ export default function LandingPage({ data, pageContext }) {
                     type={section.quotes[0].type}
                 />
             )
-          // case "QuoteSlider":
-          //     return (
-          //         <></>
-          //     )
-          // case "Accordian":
-          //     return (
-          //         <></>
-          //     )
+          case "QuoteSlider":
+              return (
+                  <></>
+              )
+          case "Accordion":
+              return (
+                <AccordionSection
+                  key={section.internalName}
+                  features={section.features}
+                  sectionHeading={section.heading}
+                  />
+              )
 
             case "StatsFeatures":
               return (

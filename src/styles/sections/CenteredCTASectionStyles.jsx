@@ -10,6 +10,8 @@ export const SectionWrapper = styled.section`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+      padding-bottom: ${props =>
+    props.currentSlug === "about" ? "var(--space-lg)" : "var(--space-xl)"};
 `
 export const Title = styled.h2`
   max-width: 100%;
