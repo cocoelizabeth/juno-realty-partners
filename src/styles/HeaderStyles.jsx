@@ -31,6 +31,7 @@ export const LogoLink = styled(Link)`
   .header-logo {
     height: var(--logo-height);
     width: auto;
+    min-width: 107px;
     /* margin: 17px 0; */
     div {
       height:var(--logo-height);

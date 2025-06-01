@@ -5,27 +5,17 @@ export const WhyLandownersChooseUsSectionWrapper = styled.section`
   padding-top: 0;
   max-width: var(--max-width);
   margin: 0 auto;
-
-`
+`;
 
 export const ContentWrapper = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: 480px) {
-  }
-
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     column-gap: var(--space-gap);
   }
-
-  @media only screen and (min-width: 1024px) {
-  }
-
-  @media only screen and (min-width: 1200px) {
-  }
-`
+`;
 export const SectionHeading = styled.h2`
   max-width: 100%;
   margin-bottom: calc(var(--space-md) - var(--space-gap));
@@ -34,7 +24,7 @@ export const SectionHeading = styled.h2`
   @media only screen and (min-width: 768px) {
     margin-bottom: var(--space-md);
   }
-`
+`;
 
 export const StatisticItemsWrapper = styled.div`
   display: flex;
@@ -45,19 +35,16 @@ export const StatisticItemsWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     width: 80%;
   }
-    @media only screen and (min-width: 1024px) {
-        width: 50%;
-        
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
   }
 
-    @media only screen and (min-width: 1024px) {
-        width: 40%;
-        
+  @media only screen and (min-width: 1024px) {
+    width: 40%;
   }
-
-`
+`;
 
 export const ReasonItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;

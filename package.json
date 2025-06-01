@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Coco Kuntz <cocoelizabeth89@gmail.com>",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.0.1",
+    "@contentful/rich-text-types": "^17.0.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "gatsby": "^5.14.3",

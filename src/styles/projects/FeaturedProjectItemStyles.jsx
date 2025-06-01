@@ -97,10 +97,10 @@ export const FeaturedProjectTextWrapper = styled(Link)`
   p.featured-case-study-title {
           font-weight: var(--font-weight-regular);
     &:after {
-      content: "→";
+      /* content: "→";
       margin-left: 5px;
       display: inline-block;
-      transition: transform 0.3 ease;
+      transition: transform 0.3 ease; */
 
     }
   }

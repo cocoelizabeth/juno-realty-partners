@@ -8,6 +8,7 @@ import FeaturedProjectsSection from "../components/sections/FeaturedProjectsSect
 import WhyLandownersChooseUsSection from "../components/sections/WhyLandownersChooseUsSection"
 import QuoteSingularBlock from "../components/quotes/QuoteSingular"
 import StatsFeaturesSection from "../components/sections/StatsFeaturesSection"
+import LeadershipSection from "../components/sections/LeadershipSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -89,9 +90,22 @@ export default function LandingPage({ data, pageContext }) {
           //     )
 
             case "StatsFeatures":
-              return <StatsFeaturesSection key={section.internalName} stats={section.stats} statsDisclaimer={section.statsDisclaimer}/>
-          //   case "Leadership":
-          //     return <LeadershipSection key={section.internalName} {...section} />
+              return (
+                <StatsFeaturesSection key={
+                section.internalName} 
+                stats={section.stats} 
+                statsDisclaimer={section.statsDisclaimer}
+              />
+              )
+
+            case "Leadership":
+              return (
+                <LeadershipSection 
+                  key={section.internalName}
+                  sectionHeading={section.heading}
+                  people={section.people}
+              />
+              )
 
           default:
             return null
@@ -154,6 +168,20 @@ export const query = graphql`
             body {raw}
             speaker
             style
+          }
+          people {
+            internalName
+            name
+            title
+            phone
+            email
+            bio {
+              raw
+            }
+            photo {
+              description
+              gatsbyImageData (aspectRatio:0.8125 )
+            }
           }
           projects {
             id
