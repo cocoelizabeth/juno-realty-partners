@@ -8,8 +8,8 @@ export const FeaturedProjectsSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  /* padding: ${props =>
-    props.currentSlug === "portfolio" ? "0px 20px" : "220"}; */
+  padding-bottom: ${props =>
+    props.currentSlug === "portfolio" ? "0" : "var(--space-xl)"};
 
   & ${PrimaryButton} {
     width: fit-content;
@@ -32,8 +32,17 @@ export const FeaturedProjectsItemsWrapper = styled.div`
   max-width: 100%;
   margin-bottom: var(--space-md);
 
+  margin-bottom: ${props =>
+    props.currentSlug === "portfolio" ? "0" : "var(--space-md)"};
+
+      row-gap: ${props =>
+    props.currentSlug === "portfolio" ? "0" : "20px"};
+
   @media only screen and (min-width: 1024px) {
     flex-direction: row;
     column-gap: var(--space-gap);
+       column-gap: ${props =>
+    props.currentSlug === "portfolio" ? "var(--space-md)" : "var(--space-gap)"};
+    
   }
 `

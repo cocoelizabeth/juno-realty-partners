@@ -8,7 +8,7 @@ import {
 import { SecondaryButton } from "../../styles/ButtonStyles"
 
 
-export default function FeaturedProjectItem({ featuredProject }) {
+export default function FeaturedProjectItem({ featuredProject, currentSlug }) {
   const heroImage = featuredProject.project.heroImage
   const projectName = featuredProject.projectNameForCaseStudy
   const caseStudyTitle = featuredProject.caseStudyTitle
@@ -16,12 +16,14 @@ export default function FeaturedProjectItem({ featuredProject }) {
 //   const units = featuredProject.project.units
 //   const type = featuredProject.project.type
 
+debugger
+
   let ctaLink = featuredProject.slug.startsWith("/")
     ? `projects/${featuredProject.slug}`
     : `/projects/${featuredProject.slug}`
 
   return (
-    <FeaturedProjectItemWrapper>
+    <FeaturedProjectItemWrapper currentSlug={currentSlug}>
       <ProjectImageLink to={ctaLink} className="featured-project-image-wrapper">
         <GatsbyImage
           image={heroImage.gatsbyImageData}

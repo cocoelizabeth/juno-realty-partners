@@ -23,12 +23,13 @@ export default function FeaturedProjectsSection({
         <SectionHeading>{sectionHeading}</SectionHeading>
       )}
 
-      <FeaturedProjectsItemsWrapper>
+      <FeaturedProjectsItemsWrapper currentSlug={currentSlug} >
         {projects.map(project => {
           return (
             <FeaturedProjectItem
               key={project.internalName}
               featuredProject={project}
+              currentSlug={currentSlug}
             />
           )
         })}

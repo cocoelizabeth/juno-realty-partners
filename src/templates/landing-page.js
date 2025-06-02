@@ -11,6 +11,7 @@ import StatsFeaturesSection from "../components/sections/StatsFeaturesSection"
 import LeadershipSection from "../components/sections/LeadershipSection"
 import AccordionSection from "../components/sections/AccordionSection"
 import QuoteSliderSection from "../components/sections/QuoteSliderSection"
+import ProjectGridSection from "../components/sections/ProjectGridSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -116,6 +117,13 @@ export default function LandingPage({ data, pageContext }) {
                   people={section.people}
               />
               )
+            case "ProjectGrid":
+              return (
+                <ProjectGridSection 
+                  key={section.internalName}
+                  projects={section.projects}
+              />
+              )
 
           default:
             return null
@@ -193,29 +201,49 @@ export const query = graphql`
               gatsbyImageData (aspectRatio:0.8125 )
             }
           }
+
           projects {
-            id
-            contentful_id
-            internalName
-            projectNameForCaseStudy
-            caseStudyTitle
-            slug
-            case_study {
-              contentful_id
-            }
-            project {
-              heroImage {
-                description
-                gatsbyImageData
-              }
-              type
+            __typename
+            ... on ContentfulProject {
+  
+              title
+              featuredProject
               units
               location
-              featuredProject
+              status
+              type
+              role
+              heroImage {
+                description
+                gatsbyImageData (aspectRatio: 1.197)
+              }
+            }
+
+            ... on ContentfulCaseStudy {
+ 
+              internalName
+              projectNameForCaseStudy
+              caseStudyTitle
+              slug
+              project {
+                heroImage {
+                  description
+                  gatsbyImageData 
+                }
+                type
+                units
+                location
+                featuredProject
+              }
             }
           }
+
         }
       }
     }
   }
 `
+// missing these fields on caseStudy
+              // content
+              // gallery
+              // moreFeaturedProjects

@@ -13,6 +13,10 @@ export const FeaturedProjectItemWrapper = styled.article`
   flex: 1;
   text-align: center;
 
+    // here
+   margin-bottom: ${props =>
+    props.currentSlug === "portfolio" ? "var(--space-md)" : "0"};
+
   &:hover {
     opacity: 0.9;
     transition: opacity 0.3s ease;
@@ -22,7 +26,10 @@ export const FeaturedProjectItemWrapper = styled.article`
   }
 
   @media only screen and (min-width: 768px) {
-    margin-bottom: var(--space-gap);
+    /* margin-bottom: var(--space-gap); */
+     margin-bottom: ${props =>
+    props.currentSlug === "portfolio" ? "var(--space-md)" : "var(--space-gap)"};
+
     /* &:nth-of-type(even) {
       .featured-project-image-wrapper {
         align-self: flex-end;
