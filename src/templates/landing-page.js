@@ -10,6 +10,7 @@ import QuoteSingularBlock from "../components/quotes/QuoteSingular"
 import StatsFeaturesSection from "../components/sections/StatsFeaturesSection"
 import LeadershipSection from "../components/sections/LeadershipSection"
 import AccordionSection from "../components/sections/AccordionSection"
+import QuoteSliderSection from "../components/sections/QuoteSliderSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -83,7 +84,11 @@ export default function LandingPage({ data, pageContext }) {
             )
           case "QuoteSlider":
               return (
-                  <></>
+                 <QuoteSliderSection
+                  key={section.internalName}
+                  quotes={section.quotes}
+                  sectionHeading={section.heading}
+                 />
               )
           case "Accordion":
               return (

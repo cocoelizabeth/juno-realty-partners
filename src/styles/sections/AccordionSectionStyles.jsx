@@ -39,7 +39,8 @@ export const AccordionContainer = styled.div`
   width: 100%;
   @media only screen and (min-width: 928px) {
     padding-left: calc(var(--space-gap) *2);
-    width: 70%
+    width: 70%;
+    margin-left: calc(var(--space-gap) *2);
   }
   
   `

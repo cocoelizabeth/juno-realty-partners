@@ -13,7 +13,7 @@ export default function QuoteSingularBlock({ body, speaker, style }) {
             {documentToReactComponents(JSON.parse(body.raw))}
           </div>
         )}
-        <div className="speaker">{speaker}</div>
+        <div className="speaker">— {speaker}</div>
       </div>
     </QuoteSingularSectionWrapper>
   )
