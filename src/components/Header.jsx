@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, useLocation } from "gatsby"
 import {
   HeaderContainer,
   Inner,
@@ -20,6 +20,7 @@ export default function Header() {
   // Toogle mobile menu state
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  
 
   // Close menu when viewport crosses above the breakpoint
   useEffect(() => {
