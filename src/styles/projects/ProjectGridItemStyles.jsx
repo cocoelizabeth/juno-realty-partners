@@ -2,8 +2,6 @@ import styled from "styled-components"
 
 export const ProjectGridItemWrapper = styled.article`
   max-width: 100%;
-
-  /* --top-row-font-size: 14px; */
   --top-row-padding: 9px 0 0 0;
   --second-row-font-size: 14px;
   --third-row-font-size: 14px;
@@ -49,7 +47,7 @@ export const ProjectGridItemWrapper = styled.article`
   }
 
   @media only screen and (min-width: 928px) {
-        --units-font-size: 15px;
+    --units-font-size: 15px;
     --type-font-size: 15px;
     --location-font-size: 15px;
     --second-row-font-size: 15px;
@@ -58,7 +56,7 @@ export const ProjectGridItemWrapper = styled.article`
   }
 
   @media only screen and (min-width: 1024px) {
-            --units-font-size: 12px;
+    --units-font-size: 12px;
     --type-font-size: 12px;
     --location-font-size: 12px;
     --second-row-font-size: 12px;
@@ -66,8 +64,8 @@ export const ProjectGridItemWrapper = styled.article`
     --top-row-padding: 9px 0 2px 0;
   }
 
-    @media only screen and (min-width: 1200px) {
-            --units-font-size: 15px;
+  @media only screen and (min-width: 1200px) {
+    --units-font-size: 15px;
     --type-font-size: 15px;
     --location-font-size: 15px;
     --second-row-font-size: 15px;
@@ -106,12 +104,9 @@ export const Location = styled.p`
   font-size: var(--location-font-size);
 `
 export const Status = styled.p`
-  line-height: 1;
   font-size: var(--second-row-font-size);
   width: 100%;
-  margin-bottom: 7px;
 `
 export const Role = styled.p`
   font-size: var(--third-row-font-size);
-  line-height: 1;
 `

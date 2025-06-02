@@ -47,6 +47,7 @@ export const ProjectImageLink = styled(Link)`
   // here
   display: block;
   overflow: hidden;
+  position: relative;
 
   .project-image-wrapper {
     height: 100%;
@@ -162,4 +163,23 @@ export const FeaturedProjectTextWrapper = styled(Link)`
   @media only screen and (min-width: 1200px) {
     padding: 40px;
   }
+`
+export const FeaturedTag = styled.div`
+  background: var(--color-light);
+  padding: 6px 10px 6px 12px;
+  color: var(--color-dark);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-align: center;
+
+    background: var(--color-dark);
+    color: var(--color-light);
+    font-weight: var(--font-weight-semi-bold);
+  
 `

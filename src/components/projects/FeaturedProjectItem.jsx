@@ -4,6 +4,7 @@ import {
   FeaturedProjectItemWrapper,
   FeaturedProjectTextWrapper,
   ProjectImageLink,
+  FeaturedTag
 } from "../../styles/projects/FeaturedProjectItemStyles"
 import { SecondaryButton } from "../../styles/ButtonStyles"
 
@@ -16,7 +17,7 @@ export default function FeaturedProjectItem({ featuredProject, currentSlug }) {
 //   const units = featuredProject.project.units
 //   const type = featuredProject.project.type
 
-debugger
+
 
   let ctaLink = featuredProject.slug.startsWith("/")
     ? `projects/${featuredProject.slug}`
@@ -31,6 +32,9 @@ debugger
           className="project-image-wrapper"
           loading="eager"
         />
+       
+         {currentSlug === "portfolio" && <FeaturedTag>FEATURED</FeaturedTag>}
+       
       </ProjectImageLink>
 
       <FeaturedProjectTextWrapper to={ctaLink} className="featured-project-text-wrapper">
