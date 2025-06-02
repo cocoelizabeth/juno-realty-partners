@@ -18,5 +18,10 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       rel="stylesheet"
       href="https://use.typekit.net/trc4otl.css"
     />,
+    <meta
+      key="format-detection"
+      name="format-detection"
+      content="address=no"
+    />,
   ])
 }

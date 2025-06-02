@@ -126,17 +126,7 @@ export default function QuoteSliderSection({ quotes = [] }) {
         </SliderContainer>
       </SliderViewport>
 
-      {/* —— Prev/Next arrows */}
-      <ArrowButtonContainer>
-        <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
-          ←
-        </PrevButton>
-        <NextButton onClick={scrollNext} aria-label="Next testimonial">
-          →
-        </NextButton>
-      </ArrowButtonContainer>
-
-      {/* —— Dots */}
+            {/* —— Dots */}
       <DotsContainer>
         {quotes.map((_, idx) => (
           <Dot
@@ -147,6 +137,18 @@ export default function QuoteSliderSection({ quotes = [] }) {
           />
         ))}
       </DotsContainer>
+
+      {/* —— Prev/Next arrows */}
+      <ArrowButtonContainer>
+        <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
+          ←
+        </PrevButton>
+        <NextButton onClick={scrollNext} aria-label="Next testimonial">
+          →
+        </NextButton>
+      </ArrowButtonContainer>
+
+
     </QuoteSliderSectionWrapper>
   )
 }

@@ -159,7 +159,7 @@ export const ArrowButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   column-gap: var(--space-gap);
-  margin-top: var(--space-gap);
+  /* margin-top: var(--space-gap); */
 `
 // ➑ Prev/Next arrow buttons
 export const PrevButton = styled.button`
