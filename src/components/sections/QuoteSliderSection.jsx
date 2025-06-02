@@ -1,8 +1,8 @@
- // src/components/sections/TestimonialsSection.jsx
+// src/components/sections/TestimonialsSection.jsx
 import React, { useEffect, useState, useCallback, useRef } from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-import { 
+import {
   QuoteSliderSectionWrapper,
   SliderViewport,
   SliderContainer,
@@ -14,13 +14,10 @@ import {
   PrevButton,
   NextButton,
   DotsContainer,
-  Dot
-   
-} 
-from "../../styles/sections/QuoteSliderStyles"
+  Dot,
+} from "../../styles/sections/QuoteSliderStyles"
 import QuotationMark1 from "../../images/quotation-mark-1.svg"
 import useEmblaCarousel from "embla-carousel-react"
-
 
 // Customize how the quote’s RichText is rendered
 const richTextOptions = {
@@ -36,57 +33,57 @@ const richTextOptions = {
 }
 
 export default function QuoteSliderSection({ quotes = [] }) {
-    // Set up Embla with options
-    const [viewportRef, embla] = useEmblaCarousel({
-        loop: true, // infinite lopping
-        // align: 0, // left align slides in viewport
-        skipSnaps: false, // always snaps exactly one slide at a time
-        containScroll: "trimSnaps", // doesnt allow blank peeks beyond real slides
-    })
+  // Set up Embla with options
+  const [viewportRef, embla] = useEmblaCarousel({
+    loop: true, // infinite lopping
+    // align: 0, // left align slides in viewport
+    skipSnaps: false, // always snaps exactly one slide at a time
+    containScroll: "trimSnaps", // doesnt allow blank peeks beyond real slides
+  })
 
-    // State to track which slide is selected (for dots)
-    const [selectedIndex, setSelectedIndex] = useState(0);
+  // State to track which slide is selected (for dots)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
-    // Refs for measuring slide heights
-    const slideRefs = useRef([])
-    // const [maxHeight, setMaxHeight] = useState(0)
+  // Refs for measuring slide heights
+  const slideRefs = useRef([])
+  // const [maxHeight, setMaxHeight] = useState(0)
 
-    // Measure heights whenever window or Embla resizes
-    const resizeObserver = useRef(null)
-    // const calculateMaxHeight = useCallback(() => {
-    //     if (slideRefs.current.length === 0) return
-    //     let max = 0
-    //     slideRefs.current.forEach(slideEl => {
-    //         if (!slideEl) return
-    //         const h = slideEl.offsetHeight
-    //         if (h > max) max = h
-    //     })
-    //     setMaxHeight(max)
-    // }, [])
+  // Measure heights whenever window or Embla resizes
+  const resizeObserver = useRef(null)
+  // const calculateMaxHeight = useCallback(() => {
+  //     if (slideRefs.current.length === 0) return
+  //     let max = 0
+  //     slideRefs.current.forEach(slideEl => {
+  //         if (!slideEl) return
+  //         const h = slideEl.offsetHeight
+  //         if (h > max) max = h
+  //     })
+  //     setMaxHeight(max)
+  // }, [])
 
-//   useEffect(() => {
-//     if (!embla) return
-//     // Whenever slide changes, recalc heights
-//     calculateMaxHeight()
+  //   useEffect(() => {
+  //     if (!embla) return
+  //     // Whenever slide changes, recalc heights
+  //     calculateMaxHeight()
 
-//     // Attach a ResizeObserver to recalc when a slide’s content or window changes
-//     if (typeof ResizeObserver === "function") {
-//       resizeObserver.current = new ResizeObserver(() => {
-//         calculateMaxHeight()
-//       })
-//       slideRefs.current.forEach(el => {
-//         if (el) resizeObserver.current.observe(el)
-//       })
-//     }
+  //     // Attach a ResizeObserver to recalc when a slide’s content or window changes
+  //     if (typeof ResizeObserver === "function") {
+  //       resizeObserver.current = new ResizeObserver(() => {
+  //         calculateMaxHeight()
+  //       })
+  //       slideRefs.current.forEach(el => {
+  //         if (el) resizeObserver.current.observe(el)
+  //       })
+  //     }
 
-//     return () => {
-//       if (resizeObserver.current) {
-//         resizeObserver.current.disconnect()
-//       }
-//     }
-//   }, [embla, calculateMaxHeight])
+  //     return () => {
+  //       if (resizeObserver.current) {
+  //         resizeObserver.current.disconnect()
+  //       }
+  //     }
+  //   }, [embla, calculateMaxHeight])
 
-    // Listen for embla’s “select” event to update dots
+  // Listen for embla’s “select” event to update dots
   useEffect(() => {
     if (!embla) return
     const onSelect = () => {
@@ -98,32 +95,23 @@ export default function QuoteSliderSection({ quotes = [] }) {
     return () => embla.off("select", onSelect)
   }, [embla])
 
-   // Handlers for Prev/Next buttons
+  // Handlers for Prev/Next buttons
   const scrollPrev = () => embla && embla.scrollPrev()
   const scrollNext = () => embla && embla.scrollNext()
 
-
-/* -------------------------------------------------------------------------- */
-/*                                     OLD                                    */
-/* -------------------------------------------------------------------------- */
-
-
-
   return (
-    // <QuoteSliderSectionWrapper style={{ height: maxHeight + 80}}>
     <QuoteSliderSectionWrapper>
-
-
-        {/* Embla viewport & container */}
-      <SliderViewport ref={viewportRef} >
+      {/* Embla viewport & container */}
+      <SliderViewport ref={viewportRef}>
         <SliderContainer>
           {quotes.map((item, index) => (
-            <Slide
-              key={index}
-              ref={el => (slideRefs.current[index] = el)}
-            >
-              <QuoteCard >
-                        <QuotationMark1 className="quotation-svg" width={120} height={40} />
+            <Slide key={index} ref={el => (slideRefs.current[index] = el)}>
+              <QuoteCard>
+                <QuotationMark1
+                  className="quotation-svg"
+                  width={120}
+                  height={40}
+                />
 
                 <QuoteText>
                   {documentToReactComponents(
@@ -131,29 +119,24 @@ export default function QuoteSliderSection({ quotes = [] }) {
                     richTextOptions
                   )}
                 </QuoteText>
-                <AuthorLine>
-                — {item.speaker}
-                </AuthorLine>
+                <AuthorLine>— {item.speaker}</AuthorLine>
               </QuoteCard>
             </Slide>
           ))}
         </SliderContainer>
       </SliderViewport>
 
-           {/* —— ➒ Prev/Next arrows */}
-           <ArrowButtonContainer>
-                  <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
-        ←
-      </PrevButton>
-      <NextButton onClick={scrollNext} aria-label="Next testimonial">
-        →
-      </NextButton>
+      {/* —— Prev/Next arrows */}
+      <ArrowButtonContainer>
+        <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
+          ←
+        </PrevButton>
+        <NextButton onClick={scrollNext} aria-label="Next testimonial">
+          →
+        </NextButton>
+      </ArrowButtonContainer>
 
-           </ArrowButtonContainer>
-    
-
-
-      {/* —— ➓ Dots */}
+      {/* —— Dots */}
       <DotsContainer>
         {quotes.map((_, idx) => (
           <Dot
@@ -164,7 +147,6 @@ export default function QuoteSliderSection({ quotes = [] }) {
           />
         ))}
       </DotsContainer>
-
     </QuoteSliderSectionWrapper>
   )
 }

@@ -11,6 +11,20 @@ import {
   AccordionIcon,
 } from "../../styles/sections/AccordionSectionStyles"
 
+import { Bold, Italic } from "../../styles/accordion/RichTextStyles"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+const richTextOptions = {
+  renderMark: {
+    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    [MARKS.ITALIC]: text => <Italic>{text}</Italic>,
+    [MARKS.UNDERLINE]: text => <u>{text}</u>,
+  },
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+    //  can add more later
+  },
+}
+
 export default function AccordionSection({ sectionHeading, features }) {
   // state: which index is currently open (null if none)
   const [activeIndex, setActiveIndex] = useState(null)
@@ -53,7 +67,7 @@ export default function AccordionSection({ sectionHeading, features }) {
               */}
               {isOpen && (
                 <AccordionItemBody>
-                  {documentToReactComponents(JSON.parse(feature.body.raw))}
+                  {documentToReactComponents(JSON.parse(feature.body.raw), richTextOptions)}
                 </AccordionItemBody>
               )}
             </AccordionItemContainer>

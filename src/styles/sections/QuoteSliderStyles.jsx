@@ -56,7 +56,7 @@ export const QuoteSliderSectionWrapper = styled.section`
 
 `
 
-// ➋ Embla’s viewport “mask”
+// Embla’s viewport “mask”
 // This is the element we pass `ref={viewportRef}` to for Embla.
 export const SliderViewport = styled.div`
   /* overflow: hidden; */
@@ -64,7 +64,7 @@ export const SliderViewport = styled.div`
   overflow: visible;
 `
 
-// ➌ The flex container that holds all slides in a row
+// The flex container that holds all slides in a row
 export const SliderContainer = styled.div`
   display: flex;
   user-select: none;
@@ -75,7 +75,7 @@ export const SliderContainer = styled.div`
   overflow: visible;
 `
 
-// ➍ Each individual slide
+// Each individual slide
 export const Slide = styled.div`
   margin-left: 0;
   padding-right: 0;
@@ -95,7 +95,7 @@ export const Slide = styled.div`
   }
 `
 
-// ➎ The card that wraps quote + author
+// The card that wraps quote + author
 export const QuoteCard = styled.div`
   background: var(--color-medium);
   padding: var(--quote-card-vertical-padding) var(--quote-card-side-padding);
@@ -197,6 +197,7 @@ export const DotsContainer = styled.div`
   justify-content: center;
   gap: var(--space-xs);
   margin-top: var(--space-gap);
+  padding-bottom: var(--space-gap);
 `
 
 // ➓ Each dot
