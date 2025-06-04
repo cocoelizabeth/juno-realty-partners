@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { useStaticQuery, graphql, useLocation } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 import {
   HeaderContainer,
   Inner,
@@ -21,7 +22,17 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   
+  // NAV FOR WHITE BACKGROUND PAGES
+  // Get current route/pathname
+  const {pathname } = useLocation();
 
+ // Decide which paths have white backgrounds and should be “always scrolled from the start” 
+ // ( “/404” and anything under “/projects/”)
+  const alwaysBlackPaths = ["/404"]
+  const isCaseStudyPage = pathname.startsWith("/projects/")
+  const forceBlack = alwaysBlackPaths.includes(pathname) || isCaseStudyPage
+
+  
   // Close menu when viewport crosses above the breakpoint
   useEffect(() => {
     function handleResize() {
@@ -93,13 +104,18 @@ export default function Header() {
   const initialAltText = nav.logo.description || "Juno Realty Partners Logo LLC"
   const scrolledAltText = nav.alternateLogo.description || initialAltText
 
+
+  // final “useBlackStyle” is true if user scrolled OR if we’re forcing black
+  const useBlackStyle = forceBlack || isScrolled
+
+
   return (
-    <HeaderContainer isScrolled={isScrolled}>
+    <HeaderContainer isScrolled={useBlackStyle}>
       <Inner>
-        <LogoLink to="/" isScrolled={isScrolled}>
+        <LogoLink to="/" isScrolled={useBlackStyle}>
           <GatsbyImage
-            image={isScrolled ? scrolledLogo : initialLogo}
-            alt={isScrolled ? initialAltText : scrolledAltText}
+            image={useBlackStyle ? scrolledLogo : initialLogo}
+            alt={useBlackStyle ? initialAltText : scrolledAltText}
             className="header-logo"
             loading="eager"
           />
@@ -107,7 +123,7 @@ export default function Header() {
 
         <MobileToggle
           open={open}
-          isScrolled={isScrolled}
+          isScrolled={useBlackStyle}
           onClick={() => setOpen(o => !o)}
         >
           {open ? <MdClose /> : <MdMenu />}
@@ -131,7 +147,7 @@ export default function Header() {
                     to={path}
                     activeClassName="active"
                     onClick={() => setOpen(false)}
-                    isScrolled={isScrolled}
+                    isScrolled={useBlackStyle}
                   >
                     {link.pageTitle}
                   </NavLink>

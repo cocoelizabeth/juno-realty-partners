@@ -11,8 +11,12 @@ export const HeaderContainer = styled.header`
   /* ➊ switch from transparent → white */
   background-color: ${props =>
     props.isScrolled ? "var(--color-light)" : "transparent"};
-  transition: background-color 0.3s ease;
+  /* transition: background-color 0.3s ease; */
+
+  box-shadow: ${({ isScrolled }) =>
+    isScrolled ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
 `
+
 
 export const Inner = styled.div`
   max-width: var(--max-width);

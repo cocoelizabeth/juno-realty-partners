@@ -67,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-md: 1rem;
     --font-size-lg: 24px;
     --font-size-xl: 35px;
+    --font-size-xxl: 62px;
     --font-size-statistic: 62px;
     --font-weight-light: 300;
     --font-weight-regular: 400;

@@ -1,8 +1,4 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require("path")
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -10,7 +6,8 @@
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(`
+  // ─── 1) Generate Landing Pages ───────────────────────────────────────────────
+  const landingResult = await graphql(`
     {
       allContentfulLandingPage {
         nodes {
@@ -21,20 +18,42 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (result.errors ) {
-    reporter.panic("Error loading landing pages", result.errors)
+  if (landingResult.errors) {
+    reporter.panic("Error loading landing pages", landingResult.errors)
     return
   }
 
-  result.data.allContentfulLandingPage.nodes.forEach(({ slug }) => {
-    // If this is the “home” slug, mount it at '/', otherwise at '/slug/'
-    const path = slug === "home" ? "/" : `/${slug}/`
+  landingResult.data.allContentfulLandingPage.nodes.forEach(({ slug }) => {
+    const pagePath = slug === "home" ? "/" : `/${slug}/`
     createPage({
-      path: path,
-      component: require.resolve ("./src/templates/landing-page.js"),
-      context: {
-        slug: slug,
-      },
+      path: pagePath,
+      component: path.resolve("./src/templates/landing-page.js"),
+      context: { slug },
+    })
+  })
+
+  // ─── 2) Generate Case Study Pages ────────────────────────────────────────────
+  const caseStudiesResult = await graphql(`
+    {
+      allContentfulCaseStudy {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  if (caseStudiesResult.errors) {
+    reporter.panic("Error loading Case Studies", caseStudiesResult.errors)
+    return
+  }
+
+  const caseStudies = caseStudiesResult.data.allContentfulCaseStudy.nodes
+  caseStudies.forEach((cs) => {
+    createPage({
+      path: `/projects/${cs.slug}/`,
+      component: path.resolve("./src/templates/case-study-page.js"),
+      context: { slug: cs.slug },
     })
   })
 }

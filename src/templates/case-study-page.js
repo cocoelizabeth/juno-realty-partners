@@ -1,0 +1,185 @@
+// src/templates/caseStudyTemplate.jsx
+import React from "react"
+import { graphql, Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Layout from "../components/Layout"
+import {
+  PageWrapper,
+  Breadcrumbs,
+  TitleSection,
+  ContentSection,
+  CaseStudyContentWrapper,
+  GallerySection,
+  MoreFeaturedSection,
+} from "../styles/case-studies/CaseStudyPageStyles"
+import OverviewSection from "../components/case-studies/OverviewSection"
+import CaseStudyTextBlock from "../components/case-studies/CaseStudyTextBlock"
+
+export default function CaseStudyPage({ data }) {
+  const cs = data.contentfulCaseStudy
+
+  const {
+    caseStudyTitle,
+    projectNameForCaseStudy,
+    otherOverviewFacts,
+    openingImage,
+    content, // array of CaseStudyTextBlock entries
+    gallery, // array of Asset images
+    moreFeaturedProjects, // array of other caseStudy entries
+  } = cs
+
+  // The connected project data:
+  const project = cs.project
+  const { title: projectTitle, location, units, type, status, role } = project
+
+  return (
+    <Layout>
+      <PageWrapper>
+        <Breadcrumbs>
+          <Link to="/portfolio">PORTFOLIO</Link>
+          <p className="featured-projects-bc">{"FEATURED"}</p>
+          <p className="current-project-bc">{projectNameForCaseStudy}</p>
+        </Breadcrumbs>
+        {/* 1. Case Study Title & Location */}
+        <TitleSection>
+          <h1>{projectNameForCaseStudy}</h1>
+          <p>{location}</p>
+        </TitleSection>
+
+        <ContentSection>
+          <OverviewSection
+            key={projectNameForCaseStudy}
+            otherOverviewFacts={otherOverviewFacts}
+            projectFacts={project}
+            projectNameForCaseStudy={projectNameForCaseStudy}
+          ></OverviewSection>
+
+          {/* 2. Overview section: pull facts from project + otherOverviewFacts */}
+
+          <CaseStudyContentWrapper>
+            <h2>{caseStudyTitle}</h2>
+            {/* 3. Opening Image */}
+            {openingImage && (
+              <div className="opening-image">
+                <GatsbyImage
+                  image={getImage(openingImage.gatsbyImageData)}
+                  alt={openingImage.description}
+                />
+              </div>
+            )}
+
+            {content &&
+              content.map(block => {
+                return (
+                  <CaseStudyTextBlock
+                    key={block.internalName}
+                    content={block}
+                  ></CaseStudyTextBlock>
+                )
+              })}
+
+            {/* GALLERY SECTION BELOW */}
+            {/* {gallery && gallery.length > 0 && (
+              <GallerySection>
+                <h2>Gallery</h2>
+                <div className="grid">
+                  {gallery.map((asset, i) => (
+                    <div key={i} className="grid-item">
+                      <GatsbyImage
+                        image={getImage(asset.gatsbyImageData)}
+                        alt={asset.description}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </GallerySection>
+            )} */}
+          </CaseStudyContentWrapper>
+        </ContentSection>
+
+        {/* 6. “More Featured Projects” */}
+        {moreFeaturedProjects && moreFeaturedProjects.length === 2 && (
+          // <MoreFeaturedSection>
+          //   <h2>More Featured Projects</h2>
+          //   <div className="cards">
+          //     {moreFeaturedProjects.map(other => (
+          //       <a
+          //         key={other.slug}
+          //         href={`/projects/${other.slug}`}
+          //         className="card"
+          //       >
+          //         <h3>{other.caseStudyTitle}</h3>
+          //         <p>{other.projectNameForCaseStudy}</p>
+          //       </a>
+          //     ))}
+          //   </div>
+          // </MoreFeaturedSection>
+        )}
+      </PageWrapper>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query CaseStudyBySlug($slug: String!) {
+    contentfulCaseStudy(slug: { eq: $slug }) {
+      caseStudyTitle
+      projectNameForCaseStudy
+      otherOverviewFacts
+      openingImage {
+        description
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+      project {
+        title
+        location
+        units
+        type
+        status
+        role
+      }
+      content {
+        __typename
+        ... on ContentfulCaseStudyTextBlock {
+          internalName
+          heading
+          body {
+            raw
+                          references {
+                __typename
+                ... on ContentfulAsset {
+                  contentful_id
+                  gatsbyImageData(layout: CONSTRAINED)
+                  description
+                }
+                ... on ContentfulQuote {
+                  contentful_id
+                  speaker
+                  style
+                  body {
+                    raw
+                  }
+                }
+              }
+          }
+          quote {
+            body {
+              raw
+            }
+            speaker
+          }
+        }
+      }
+      gallery {
+        description
+        gatsbyImageData(layout: CONSTRAINED, width: 300)
+      }
+      moreFeaturedProjects {
+        slug
+        caseStudyTitle
+        projectNameForCaseStudy
+      }
+    }
+  }
+`
