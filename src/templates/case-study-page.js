@@ -80,7 +80,7 @@ export default function CaseStudyPage({ data }) {
               })}
 
             {/* GALLERY SECTION BELOW */}
-            {/* {gallery && gallery.length > 0 && (
+            {gallery && gallery.length > 0 && (
               <GallerySection>
                 <h2>Gallery</h2>
                 <div className="grid">
@@ -94,27 +94,27 @@ export default function CaseStudyPage({ data }) {
                   ))}
                 </div>
               </GallerySection>
-            )} */}
+            )}
           </CaseStudyContentWrapper>
         </ContentSection>
 
         {/* 6. “More Featured Projects” */}
         {moreFeaturedProjects && moreFeaturedProjects.length === 2 && (
-          // <MoreFeaturedSection>
-          //   <h2>More Featured Projects</h2>
-          //   <div className="cards">
-          //     {moreFeaturedProjects.map(other => (
-          //       <a
-          //         key={other.slug}
-          //         href={`/projects/${other.slug}`}
-          //         className="card"
-          //       >
-          //         <h3>{other.caseStudyTitle}</h3>
-          //         <p>{other.projectNameForCaseStudy}</p>
-          //       </a>
-          //     ))}
-          //   </div>
-          // </MoreFeaturedSection>
+          <MoreFeaturedSection>
+            <h2>More Featured Projects</h2>
+            <div className="cards">
+              {moreFeaturedProjects.map(other => (
+                <a
+                  key={other.slug}
+                  href={`/projects/${other.slug}`}
+                  className="card"
+                >
+                  <h3>{other.caseStudyTitle}</h3>
+                  <p>{other.projectNameForCaseStudy}</p>
+                </a>
+              ))}
+            </div>
+          </MoreFeaturedSection>
         )}
       </PageWrapper>
     </Layout>

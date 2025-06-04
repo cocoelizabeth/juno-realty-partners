@@ -232,6 +232,7 @@ export const TextBlockSection = styled.section`
 
 // -------------- Gallery Section --------------
 export const GallerySection = styled.section`
+display: none;
   margin-bottom: var(--space-xxl);
 
   h2 {
@@ -252,6 +253,7 @@ export const GallerySection = styled.section`
 
 // -------------- “More Featured Projects” Section --------------
 export const MoreFeaturedSection = styled.section`
+display: none;
   margin-top: var(--space-xxl);
 
   h2 {
