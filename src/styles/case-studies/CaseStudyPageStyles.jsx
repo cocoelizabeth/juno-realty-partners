@@ -283,8 +283,9 @@ export const GallerySection = styled.section`
 
 // -------------- “More Featured Projects” Section --------------
 export const MoreFeaturedSection = styled.section`
-  display: none;
-  margin-top: var(--space-xxl);
+  background-color: var(--color-medium);
+  margin-top: var(--space-xl);
+      padding: var(--space-xl) var(--section-side-padding);
 
   h2 {
     font-size: var(--font-size-lg);
@@ -297,31 +298,12 @@ export const MoreFeaturedSection = styled.section`
     flex-wrap: wrap;
     gap: var(--space-lg);
     justify-content: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    flex-direction: column;
+      @media only screen and (min-width: 768px) {
+flex-direction: row;
+  }
   }
 
-  .card {
-    text-decoration: none;
-    background: var(--color-light);
-    padding: var(--space-md);
-    border-radius: 4px;
-    width: 300px;
-    transition: transform 0.2s ease;
-    color: var(--color-dark);
-    border: 1px solid var(--color-grey);
-
-    &:hover {
-      transform: translateY(-4px);
-      border-color: var(--color-accent);
-    }
-
-    h3 {
-      font-size: var(--font-size-md);
-      margin-bottom: var(--space-sm);
-    }
-    p {
-      font-size: var(--font-size-sm);
-      font-style: italic;
-      color: var(--color-grey-dark);
-    }
-  }
 `

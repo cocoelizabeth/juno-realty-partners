@@ -15,6 +15,8 @@ import {
 } from "../styles/case-studies/CaseStudyPageStyles"
 import OverviewSection from "../components/case-studies/OverviewSection"
 import CaseStudyTextBlock from "../components/case-studies/CaseStudyTextBlock"
+import FeaturedProjectItem from "../components/case-studies/FeaturedProjectItem"
+
 
 export default function CaseStudyPage({ data }) {
   const cs = data.contentfulCaseStudy
@@ -28,6 +30,7 @@ export default function CaseStudyPage({ data }) {
     gallery, // array of Asset images
     moreFeaturedProjects, // array of other caseStudy entries
   } = cs
+
 
   // The connected project data:
   const project = cs.project
@@ -98,25 +101,22 @@ export default function CaseStudyPage({ data }) {
           </CaseStudyContentWrapper>
         </ContentSection>
 
+      </PageWrapper>
+
         {/* 6. “More Featured Projects” */}
         {moreFeaturedProjects && moreFeaturedProjects.length === 2 && (
           <MoreFeaturedSection>
             <h2>More Featured Projects</h2>
             <div className="cards">
-              {moreFeaturedProjects.map(other => (
-                <a
-                  key={other.slug}
-                  href={`/projects/${other.slug}`}
-                  className="card"
-                >
-                  <h3>{other.caseStudyTitle}</h3>
-                  <p>{other.projectNameForCaseStudy}</p>
-                </a>
+              {moreFeaturedProjects.map(project => (
+                <FeaturedProjectItem
+                  key={project.internalName}
+                  featuredProject={project}
+                />
               ))}
             </div>
           </MoreFeaturedSection>
         )}
-      </PageWrapper>
     </Layout>
   )
 }
@@ -179,6 +179,12 @@ export const query = graphql`
         slug
         caseStudyTitle
         projectNameForCaseStudy
+        project {
+          heroImage {
+            gatsbyImageData
+            description
+          }
+        }
       }
     }
   }
