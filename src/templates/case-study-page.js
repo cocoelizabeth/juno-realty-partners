@@ -16,7 +16,7 @@ import {
 import OverviewSection from "../components/case-studies/OverviewSection"
 import CaseStudyTextBlock from "../components/case-studies/CaseStudyTextBlock"
 import FeaturedProjectItem from "../components/case-studies/FeaturedProjectItem"
-
+import CaseStudyGallery from "../components/case-studies/CaseStudyGallery"
 
 export default function CaseStudyPage({ data }) {
   const cs = data.contentfulCaseStudy
@@ -86,16 +86,7 @@ export default function CaseStudyPage({ data }) {
             {gallery && gallery.length > 0 && (
               <GallerySection>
                 <h2>Gallery</h2>
-                <div className="grid">
-                  {gallery.map((asset, i) => (
-                    <div key={i} className="grid-item">
-                      <GatsbyImage
-                        image={getImage(asset.gatsbyImageData)}
-                        alt={asset.description}
-                      />
-                    </div>
-                  ))}
-                </div>
+                <CaseStudyGallery gallery={gallery}/>
               </GallerySection>
             )}
           </CaseStudyContentWrapper>
@@ -173,7 +164,7 @@ export const query = graphql`
       }
       gallery {
         description
-        gatsbyImageData(layout: CONSTRAINED, width: 300)
+        gatsbyImageData(layout: CONSTRAINED)
       }
       moreFeaturedProjects {
         slug

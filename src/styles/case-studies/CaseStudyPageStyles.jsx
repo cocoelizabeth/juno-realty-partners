@@ -9,6 +9,7 @@ export const PageWrapper = styled.div`
   font-family: var(--font-body);
   color: var(--color-dark);
   margin-top: var(--nav-height);
+  padding-bottom: 0;
 
   --case-study-section-margin: var(--case-study-space-lg);
 
@@ -200,38 +201,6 @@ export const TextBlockSection = styled.section`
   margin-bottom: var(--space-xxl);
 
 
-  /* Body Rich Text */
-  > div {
-    /* margin-top: var(--space-md); */
-
-    p {
-      /* margin-bottom: var(--space-md);
-      line-height: 1.6; */
-    }
-
-    h3 {
-      /* margin-top: var(--space-lg); */
-      /* font-size: var(--font-size-md);
-      font-weight: var(--font-weight-semi-bold); */
-    }
-
-    ul,
-    ol {
-      /* margin-left: var(--space-lg);
-      margin-bottom: var(--space-md); */
-    }
-    li {
-      margin-bottom: var(--space-sm);
-    }
-
-    /* If you embedded images in RichText, style them */
-    img {
-      /* max-width: 100%;
-      margin: var(--space-lg) auto;
-      display: block; */
-    }
-  }
-
   .embedded-quote {
     margin: var(--space-lg) 0;
     padding: var(--space-md);
@@ -262,9 +231,9 @@ export const TextBlockSection = styled.section`
 
 // -------------- Gallery Section --------------
 export const GallerySection = styled.section`
-  display: none;
-  margin-bottom: var(--space-xxl);
 
+  margin-bottom: var(--space-xxl);
+  margin-top: var(--case-study-space-lg);
   h2 {
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-md);

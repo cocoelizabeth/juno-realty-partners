@@ -34,10 +34,10 @@ export const RichTextContainer = styled.div`
   ul,
   ol {
     margin-left: var(--space-lg);
-    margin-bottom: var(--space-md);
+
   }
   li {
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0;
   }
 `
 
