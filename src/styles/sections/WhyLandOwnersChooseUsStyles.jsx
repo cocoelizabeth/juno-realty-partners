@@ -41,7 +41,7 @@ export const StatisticItemsWrapper = styled.div`
 
   @media only screen and (min-width: 1024px) {
     width: 40%;
-  }
+  }w
 `;
 
 export const ReasonItemsWrapper = styled.div`

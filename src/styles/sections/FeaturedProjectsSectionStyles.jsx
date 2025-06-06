@@ -22,6 +22,22 @@ export const SectionHeading = styled.h2`
   padding-bottom: 5px;
   border-bottom: 1px solid var(--color-dark);
 `
+
+export const Disclaimer = styled.div`
+  font-size: var(--font-size-sm);
+  opacity: 0.48;
+  margin: 0 auto;
+  padding-bottom: var(--space-md);
+  width: 100%;
+  height: auto;
+  font-style: italic;
+  /* margin-top: calc(((var(--space-xl)/2)*-1)); */
+   /* margin-bottom: calc((var(--space-xl)/2)); */
+  @media only screen and (min-width: 768px) {
+
+  }
+
+`
 export const FeaturedProjectsItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;

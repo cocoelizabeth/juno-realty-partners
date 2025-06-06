@@ -62,6 +62,8 @@ export default function LandingPage({ data, pageContext }) {
                 ctaText={section.ctaText}
                 ctaUrl={section.ctaUrl || ""}
                 showCTA={currentSlug !== "portfolio"}
+                showDisclaimer={currentSlug === "portfolio"}
+                disclaimer={section.statsDisclaimer}
               />
             )
           case "WhyLandownersChooseUs":
@@ -139,7 +141,6 @@ export const query = graphql`
       pageTitle
       headerBanner {
         heading
-        footnote
         heroImage {
           description
           gatsbyImageData(layout: FULL_WIDTH)

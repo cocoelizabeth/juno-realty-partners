@@ -8,7 +8,7 @@ export const FooterWrapper = styled.footer`
   width: 100%;
   padding-top: var(--space-lg);
   color: var(--color-light);
-  padding:var(--space-xl) 0;
+  padding:40px 0;
    
 
   font-weight: 300;

@@ -6,7 +6,7 @@ const HeaderBanner = data => {
   const heroImage = data.banner.heroImage.gatsbyImageData
   const heroImageAltText = data.banner.heroImage.description || data.banner.heading
   const heading = data.banner.heading
-  const footnote = data.banner.footnote || ""
+  // const footnote = data.banner.footnote || ""
 
   return (
     <HeaderBannerStyles>
@@ -25,9 +25,9 @@ const HeaderBanner = data => {
           <h1 className="hero-heading">{heading}</h1>
         </div>
 
-        <div className="footnote-container">
+        {/* <div className="footnote-container">
           <p className="footnote">{footnote}</p>
-        </div>
+        </div> */}
     
 
     </HeaderBannerStyles>

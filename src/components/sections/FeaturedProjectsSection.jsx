@@ -3,6 +3,7 @@ import {
   FeaturedProjectsSectionWrapper,
   SectionHeading,
   FeaturedProjectsItemsWrapper,
+  Disclaimer,
 } from "../../styles/sections/FeaturedProjectsSectionStyles"
 import { PrimaryButton } from "../../styles/ButtonStyles"
 import FeaturedProjectItem from "../projects/FeaturedProjectItem"
@@ -14,13 +15,19 @@ export default function FeaturedProjectsSection({
   currentSlug,
   ctaText,
   ctaUrl,
-  showCTA
+  showCTA,
+  showDisclaimer,
+  disclaimer
 }) {
   let path = ctaUrl.startsWith("/") ? ctaUrl : `/${ctaUrl}`
   return (
     <FeaturedProjectsSectionWrapper currentSlug={currentSlug}>
       {showHeading && sectionHeading && (
         <SectionHeading>{sectionHeading}</SectionHeading>
+      )}
+
+      {showDisclaimer && disclaimer && (
+        <Disclaimer>{disclaimer}</Disclaimer>
       )}
 
       <FeaturedProjectsItemsWrapper currentSlug={currentSlug} >
@@ -36,7 +43,9 @@ export default function FeaturedProjectsSection({
       </FeaturedProjectsItemsWrapper>
 
       {showCTA && ctaText && <PrimaryButton to={path}>{ctaText}</PrimaryButton>}
-      
+       
     </FeaturedProjectsSectionWrapper>
+
+
   )
 }

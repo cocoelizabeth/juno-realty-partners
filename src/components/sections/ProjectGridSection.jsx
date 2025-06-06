@@ -10,6 +10,7 @@ export default function ProjectGridSection({ projects }) {
   
   return (
     <ProjectGridSectionWrapper>
+  
       <ProjectGrid>
         {projects.map(project => {
           if (!project.featuredProject) {

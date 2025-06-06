@@ -58,7 +58,7 @@ export default function CaseStudyPage({ data }) {
           {/* 2. Overview section: pull facts from project + otherOverviewFacts */}
 
           <CaseStudyContentWrapper>
-            <h2>{caseStudyTitle}</h2>
+            <h2 className="case-study-title">{caseStudyTitle}</h2>
             {/* 3. Opening Image */}
             {openingImage && (
               <div className="opening-image">
@@ -129,7 +129,7 @@ export const query = graphql`
       otherOverviewFacts
       openingImage {
         description
-        gatsbyImageData(layout: FULL_WIDTH)
+        gatsbyImageData(layout: CONSTRAINED)
       }
       project {
         title

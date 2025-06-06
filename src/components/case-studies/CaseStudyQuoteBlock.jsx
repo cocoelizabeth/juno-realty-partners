@@ -12,7 +12,7 @@ export default function CaseStudyQuoteBlock({ quote }) {
   let inner
 
   switch (quote.style) {
-    case "Case Study - Aligned below text":
+    case "Case Study - Aligned to right of text":
       inner = (
         <InlineQuoteWrapper>
           <blockquote className="quote-hanging-right">

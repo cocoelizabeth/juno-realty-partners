@@ -44,6 +44,9 @@ const GlobalStyles = createGlobalStyle`
     --section-side-padding: 25px;
     --space-gap: 20px;
 
+    --case-study-space-md: 25px;
+    --case-study-space-lg: 40px;
+
     @media only screen and (min-width: 480px) {
       --space-xs: 20px;
       --space-sm: 38px;
