@@ -32,8 +32,6 @@ export const PageWrapper = styled.div`
   --overview-h3-font-size: var(--font-size-button);
   --overview-items-font-size: 14px;
   --overview-items-padding: 12px 0;
-  --overview-position: relative;
-  --overview-top: 0;
 
   --case-study-content-wrapper-padding-right: 0;
   --case-study-title-font-size: var(--font-size-lg);
@@ -56,14 +54,10 @@ export const PageWrapper = styled.div`
     --content-section-flex-direction: row-reverse;
     --overview-section-padding-top: 8px;
     --overview-items-font-size: 13px;
-
     --overview-min-width: 190px;
-        --overview-width: var(--overview-min-width);
-          --overview-position: sticky;
-          --overview-top: calc(var(--nav-height) + var(--space-md));
     --overview-items-paddings: var(--space-gap) 0;
     --case-study-content-wrapper-padding-right: var(--space-md);
-    
+    --content-max-width: calc(100% - var(--overview-min-width) - var(--case-study-content-wrapper-padding-right))
     /* --case-study-title-font-size:26px; */
 
   }
@@ -110,7 +104,6 @@ export const TitleSection = styled.section`
   margin-bottom: var(--title-line-margin-bottom);
   width: var(--content-width);
 
-
   h1 {
     font-size: var(--font-size-xl);
   }
@@ -134,6 +127,14 @@ export const ContentSection = styled.div`
   display: flex;
   flex-direction: var(--content-section-flex-direction);
   align-items: flex-start;
+
+      @media only screen and (min-width: 928px) {
+/* 
+      width: var(--content-max-width);
+      max-width: var(--content-max-width); */
+    /* --case-study-title-font-size:26px; */
+
+  }
 `
 
 // -------------- Overview Section --------------
@@ -143,9 +144,20 @@ export const OverviewSectionStyles = styled.section`
   min-width: var(--overview-min-width);
   padding-top: var(--overview-section-padding-top);
   line-height: 1.4;
-    position: var(--overview-position);
- top: var(--overview-top);
-  
+
+    @media only screen and (min-width: 928px) {
+      position: sticky;
+      /* top: calc(var(--nav-height) + var(--space-xl) + 18px + var(--bread-crumbs-margin-bottom)+127px); */
+      top: calc(var(--nav-height) + var(--space-xl) + 18px + var(--bread-crumbs-margin-bottom)+127px);
+
+      align-self: flex-start;
+      width: var(--overview-min-width);
+      min-width: var(--overview-min-width);
+      right: calc(100vw - 1200px - var(--section-side-padding));
+      right: var(--section-side-padding);
+    /* --case-study-title-font-size:26px; */
+
+  }
 
   h3 {
     text-transform: uppercase;

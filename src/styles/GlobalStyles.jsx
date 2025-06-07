@@ -144,9 +144,9 @@ const GlobalStyles = createGlobalStyle`
     /* -webkit-font-smoothing: antialiased; */
   }
 
-  html, body {
-    overflow-x: hidden;   /* hide anything that spills outside the viewport */
-  }
+  /* html, body {
+    overflow-x: hidden;   
+  } */
 
   body {
     font-family: var(--font-body);
