@@ -18,19 +18,18 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const MOBILE_BREAKPOINT = 768
 
 export default function Header() {
-  // Toogle mobile menu state
-  const [open, setOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  
-  // NAV FOR WHITE BACKGROUND PAGES
   // Get current route/pathname
   const {pathname } = useLocation();
-
  // Decide which paths have white backgrounds and should be “always scrolled from the start” 
  // ( “/404” and anything under “/projects/”)
   const alwaysBlackPaths = ["/404"]
   const isCaseStudyPage = pathname.startsWith("/projects/")
   const forceBlack = alwaysBlackPaths.includes(pathname) || isCaseStudyPage
+  // Toogle mobile menu state
+  const [open, setOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  
+
 
   
   // Close menu when viewport crosses above the breakpoint
@@ -98,24 +97,17 @@ export default function Header() {
 
   const nav = navigation.nodes[0] || { links: [] }
 
-  // logic for getting logo based on scroll position
   const initialLogo = nav.logo.gatsbyImageData
-  const scrolledLogo = nav.alternateLogo.gatsbyImageData || initialLogo
   const initialAltText = nav.logo.description || "Juno Realty Partners Logo LLC"
-  const scrolledAltText = nav.alternateLogo.description || initialAltText
-
-
-  // final “useBlackStyle” is true if user scrolled OR if we’re forcing black
-  const useBlackStyle = forceBlack || isScrolled
 
 
   return (
-    <HeaderContainer isScrolled={useBlackStyle} isCaseStudyPage={isCaseStudyPage}>
+    <HeaderContainer isScrolled={isScrolled} forceBlack={forceBlack}>
       <Inner>
-        <LogoLink to="/" isScrolled={useBlackStyle}>
+        <LogoLink to="/" isScrolled={isScrolled} forceBlack={forceBlack}>
           <GatsbyImage
-            image={useBlackStyle ? scrolledLogo : initialLogo}
-            alt={useBlackStyle ? initialAltText : scrolledAltText}
+            image={initialLogo}
+            alt={initialAltText}
             className="header-logo"
             loading="eager"
           />
@@ -123,7 +115,6 @@ export default function Header() {
 
         <MobileToggle
           open={open}
-          isScrolled={useBlackStyle}
           onClick={() => setOpen(o => !o)}
         >
           {open ? <MdClose /> : <MdMenu />}
@@ -147,7 +138,6 @@ export default function Header() {
                     to={path}
                     activeClassName="active"
                     onClick={() => setOpen(false)}
-                    isScrolled={useBlackStyle}
                   >
                     {link.pageTitle}
                   </NavLink>
