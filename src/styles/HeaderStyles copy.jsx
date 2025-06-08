@@ -9,19 +9,13 @@ export const HeaderContainer = styled.header`
   z-index: 999;
 
   /* ➊ switch from transparent → white */
-  /* background-color: ${props =>
-    props.isScrolled ? "var(--color-light)" : "transparent"}; */
+  background-color: ${props =>
+    props.isScrolled ? "var(--color-light)" : "transparent"};
 
   box-shadow: ${({ isScrolled }) =>
     isScrolled ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
-
-  background-color: ${({ isScrolled, isCaseStudyPage }) =>
-    isCaseStudyPage
-      ? "var(--color-dark)" /* case studies & 404 */
-      : isScrolled && !isCaseStudyPage
-      ? "var(--color-light)" /* after scroll on regular pages */
-      : "transparent"}; /* default on regular pages */
 `
+
 
 export const Inner = styled.div`
   max-width: var(--max-width);
@@ -43,11 +37,11 @@ export const LogoLink = styled(Link)`
     min-width: 107px;
     /* margin: 17px 0; */
     div {
-      height: var(--logo-height);
+      height:var(--logo-height);
       width: auto;
       img {
-        height: var(--logo-height);
-        width: auto;
+         height:var(--logo-height);
+         width: auto;
       }
     }
     picture {
@@ -120,7 +114,7 @@ export const NavLink = styled(Link)`
     font-family: var(--font-heading);
     font-weight: var(--font-weight-light);
     font-weight: 300;
-
+   
     &.active {
       border-bottom: 2px solid white;
       text-decoration: none;
@@ -140,8 +134,9 @@ export const MobileToggle = styled.button`
     z-index: 1000;
     // hambuger menu is only black when the menu isScrolled and is notOpen
     color: ${props =>
-      props.isScrolled && !props.open
-        ? "var(--color-dark)"
-        : "var(--color-light)"};
+      props.isScrolled && !props.open ? "var(--color-dark)" : "var(--color-light)"};
   }
 `
+
+
+

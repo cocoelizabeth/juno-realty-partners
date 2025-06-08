@@ -18,18 +18,19 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const MOBILE_BREAKPOINT = 768
 
 export default function Header() {
-  // Get current route/pathname
-  const {pathname } = useLocation();
- // Decide which paths have white backgrounds and should be “always scrolled from the start” 
- // ( “/404” and anything under “/projects/”)
-  const alwaysBlackPaths = ["/404"]
-  const isCaseStudyPage = pathname.startsWith("/projects/")
-  const forceBlack = alwaysBlackPaths.includes(pathname) 
   // Toogle mobile menu state
   const [open, setOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   
+  // NAV FOR WHITE BACKGROUND PAGES
+  // Get current route/pathname
+  const {pathname } = useLocation();
 
+ // Decide which paths have white backgrounds and should be “always scrolled from the start” 
+ // ( “/404” and anything under “/projects/”)
+  const alwaysBlackPaths = ["/404"]
+  const isCaseStudyPage = pathname.startsWith("/projects/")
+  const forceBlack = alwaysBlackPaths.includes(pathname) || isCaseStudyPage
 
   
   // Close menu when viewport crosses above the breakpoint
@@ -105,13 +106,13 @@ export default function Header() {
 
 
   // final “useBlackStyle” is true if user scrolled OR if we’re forcing black
-  const useBlackStyle = forceBlack || isScrolled && !isCaseStudyPage
+  const useBlackStyle = forceBlack || isScrolled
 
 
   return (
-    <HeaderContainer isScrolled={useBlackStyle} isCaseStudyPage={isCaseStudyPage}>
+    <HeaderContainer isScrolled={useBlackStyle}>
       <Inner>
-        <LogoLink to="/" isScrolled={useBlackStyle} isCaseStudyPage={isCaseStudyPage}>
+        <LogoLink to="/" isScrolled={useBlackStyle}>
           <GatsbyImage
             image={useBlackStyle ? scrolledLogo : initialLogo}
             alt={useBlackStyle ? initialAltText : scrolledAltText}

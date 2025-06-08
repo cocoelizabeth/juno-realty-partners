@@ -170,7 +170,7 @@ export const PrevButton = styled.button`
   cursor: pointer;
   z-index: 10;
   &:hover {
-    opacity: 0.5;
+    /* opacity: 0.5; */
   }
   left: 0;
   padding-top: 0;
@@ -185,7 +185,7 @@ export const NextButton = styled.button`
   cursor: pointer;
   z-index: 10;
   &:hover {
-    opacity: 0.5;
+    /* opacity: 0.5; */
   }
   right: 0;
   margin-left: 0;
@@ -213,11 +213,11 @@ export const Dot = styled.button`
   ${({ active }) =>
     active &&
     css`
-      background: var(--color-accent);
+      background: var(--color-dark);
     `}
 
   &:hover {
-    background: var(--color-dark);
+    background:#777;
   }
 `
 

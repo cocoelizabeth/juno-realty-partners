@@ -25,6 +25,9 @@ export const RichTextContainer = styled.div`
 
 
   counter-reset: subheading;
+  b {
+    font-weight: var(--font-weight-semi-bold);
+  }
 
   p {
     margin-top: var(--space-gap);
