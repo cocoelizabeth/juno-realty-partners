@@ -35,16 +35,19 @@ const EmblaSlide = styled.div`
   /* Adjust height as needed; auto will let the image dictate it */
   height: auto;
 
+
   @media (min-width: 768px) {
     flex: 0 0 100%;
     /* margin-left: 1.5rem; */
     height: auto;
+    max-height: 55vh;
   }
 
   @media (min-width: 1024px) {
     flex: 0 0 100%;
     /* margin-left: 2rem; */
-    height: auto;
+    /* height: auto; */
+   
   }
 `
 
