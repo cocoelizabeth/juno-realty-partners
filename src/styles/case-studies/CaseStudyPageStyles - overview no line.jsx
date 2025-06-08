@@ -35,8 +35,6 @@ export const PageWrapper = styled.div`
   --overview-position: relative;
   --overview-top: 0;
   --overview-height: 100%;
-  --overview-border-left: none;
-  --overview-padding-left: 0;
 
 
   --case-study-content-wrapper-padding-right: 0;
@@ -61,17 +59,15 @@ export const PageWrapper = styled.div`
     --overview-section-padding-top: 8px;
     --overview-items-font-size: 13px;
 
-    --overview-min-width: 215px;
+    --overview-min-width: 190px;
         --overview-width: var(--overview-min-width);
           --overview-position: sticky;
           --overview-top: calc(var(--nav-height) + var(--space-md));
     --overview-items-paddings: var(--space-gap) 0;
-    --case-study-content-wrapper-padding-right: var(--case-study-space-md);
+    --case-study-content-wrapper-padding-right: var(--space-md);
     /* --overview-height: calc(100vh - var(--nav-height) - var(--space-xl) - 18px - var(--bread-crumbs-margin-bottom - 127px)); */
     --overview-height: calc(100vh - var(--overview-top));
     --overview-section-margin-bottom: 0;
-    --overview-border-left: 1px solid var(--color-medium);
-    --overview-padding-left: var(--case-study-space-md);
   
     
     /* --case-study-title-font-size:26px; */
@@ -157,8 +153,6 @@ export const OverviewSectionStyles = styled.section`
  top: var(--overview-top);
  height: var(--overview-height);
  min-height: var(--overview-height);
- border-left: var(--overview-border-left);
- padding-left: var(--overview-padding-left);
  /* background-color: red; */
   
 

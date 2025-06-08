@@ -110,7 +110,7 @@ export default function Header() {
 
 
   return (
-    <HeaderContainer isScrolled={useBlackStyle}>
+    <HeaderContainer isScrolled={useBlackStyle} isCaseStudyPage={isCaseStudyPage}>
       <Inner>
         <LogoLink to="/" isScrolled={useBlackStyle}>
           <GatsbyImage

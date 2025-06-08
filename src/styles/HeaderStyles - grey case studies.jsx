@@ -9,11 +9,18 @@ export const HeaderContainer = styled.header`
   z-index: 999;
 
   /* ➊ switch from transparent → white */
-  background-color: ${props =>
-    props.isScrolled ? "var(--color-light)" : "transparent"};
 
-  box-shadow: ${({ isScrolled }) =>
-    isScrolled ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
+
+  box-shadow: ${({ isScrolled, isCaseStudyPage }) =>
+    isScrolled && !isCaseStudyPage ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
+
+      background-color: ${({ isScrolled, isCaseStudyPage }) =>
+    isCaseStudyPage
+      ? "var(--color-medium)" /* case studies & 404 */
+      : isScrolled && !isCaseStudyPage
+      ? "var(--color-light)" /* after scroll on regular pages */
+      : "transparent"}; /* default on regular pages */
+
 `
 
 
