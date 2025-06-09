@@ -12,6 +12,7 @@ import LeadershipSection from "../components/sections/LeadershipSection"
 import AccordionSection from "../components/sections/AccordionSection"
 import QuoteSliderSection from "../components/sections/QuoteSliderSection"
 import ProjectGridSection from "../components/sections/ProjectGridSection"
+import ContactTextSection from "../components/sections/ContactTextSection"
 
 export default function LandingPage({ data, pageContext }) {
   const landingPage = data.contentfulLandingPage
@@ -126,6 +127,18 @@ export default function LandingPage({ data, pageContext }) {
                   projects={section.projects}
               />
               )
+            case "ContactText":
+            return (
+              <ContactTextSection
+                key={section.internalName}
+                heading={section.heading || ""}
+                // subheading={section.subheading || ""}
+                body={section.body}
+                ctaText={section.ctaText || ""}
+                ctaUrl={section.ctaUrl || ""}
+                currentSlug={pageContext.slug}
+              />
+            )
 
           default:
             return null
