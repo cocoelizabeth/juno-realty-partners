@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
-
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 /**
  * The wrapper for the entire gallery slider
  */
@@ -63,88 +63,90 @@ const SlideImageWrapper = styled.div`
 
 
 const ArrowButtonContainer = styled.div`
-      width: 100%;
+      /* width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: var(--space-gap);
+  column-gap: var(--space-gap); */
 
   
 `
 /**
  * Prev/Next arrow buttons
  */
-// const PrevButton = styled.button`
-//   position: absolute;
-//   top: 50%;
-//   left: 0.5rem;
-//   transform: translateY(-50%);
-//   background: rgba(255, 255, 255, 0.8);
-//   border: none;
-//   border-radius: 50%;
-//   padding: 0.25rem;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   z-index: 10;
-
-//   position: relative;
-
-//   &:disabled {
-//     opacity: 0.3;
-//     cursor: default;
-//   }
-// `
-
-// const NextButton = styled.button`
-//   position: absolute;
-//   top: 50%;
-//   right: 0.5rem;
-//   transform: translateY(-50%);
-//   background: rgba(255, 255, 255, 0.8);
-//   border: none;
-//   border-radius: 50%;
-//   padding: 0.25rem;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   z-index: 10;
-
-//   &:disabled {
-//     opacity: 0.3;
-//     cursor: default;
-//   }
-// `
-export const PrevButton = styled.button`
-  background: transparent;
+const PrevButton = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  
   border: none;
-  font-size: 2rem;
-  color: var(--color-accent);
+  border-radius: 50%;
+  padding: 0.25rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  &:hover {
-    /* opacity: 0.5; */
+  /* color: white;
+  background: var(--color-dark); */
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
   }
-  left: 0;
-  padding-top: 0;
-  margin-right: 0;
 `
 
-export const NextButton = styled.button`
-  background: transparent;
+const NextButton = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
   border: none;
-  font-size: 2rem;
-  color: var(--color-accent);
+  border-radius: 50%;
+  padding: 0.25rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  &:hover {
-    /* opacity: 0.5; */
+
+    /* color: white;
+  background: var(--color-dark); */
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
   }
-  right: 0;
-  margin-left: 0;
 `
+// export const PrevButton = styled.button`
+//   background: transparent;
+//   border: none;
+//   font-size: 2rem;
+//   color: var(--color-accent);
+//   cursor: pointer;
+//   z-index: 10;
+//   &:hover {
+//     /* opacity: 0.5; */
+//   }
+//   left: 0;
+//   padding-top: 0;
+//   margin-right: 0;
+// `
+
+// export const NextButton = styled.button`
+//   background: transparent;
+//   border: none;
+//   font-size: 2rem;
+//   color: var(--color-accent);
+//   cursor: pointer;
+//   z-index: 10;
+//   &:hover {
+//     /* opacity: 0.5; */
+//   }
+//   right: 0;
+//   margin-left: 0;
+// `
 /**
  * Dots/navigation at the bottom
  */
@@ -210,6 +212,13 @@ export default function CaseStudyGallery({ gallery }) {
   return (
     <div style={{ position: "relative", width: "100%" }}>
       {/* Prev & Next Buttons */}
+         
+      <PrevButton onClick={scrollPrev} disabled={!canScrollPrev}>
+        <MdKeyboardArrowLeft size={24} />
+      </PrevButton>
+      <NextButton onClick={scrollNext} disabled={!canScrollNext}>
+        <MdKeyboardArrowRight size={24} />
+      </NextButton>
 
       {/* ➐ Embla viewport and container */}
       <EmblaViewport ref={emblaRef}>
@@ -243,7 +252,7 @@ export default function CaseStudyGallery({ gallery }) {
         </DotsContainer>
 
 
-
+{/* 
                 <ArrowButtonContainer>
                 <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
                     ←
@@ -251,7 +260,7 @@ export default function CaseStudyGallery({ gallery }) {
                 <NextButton onClick={scrollNext} aria-label="Next testimonial">
                     →
                 </NextButton>
-                </ArrowButtonContainer>
+                </ArrowButtonContainer> */}
 
            
         </div>
