@@ -65,11 +65,19 @@ export default function Header() {
   }, [open])
 
   // On scroll, flip isScrolled when you’ve moved down
-  useEffect(() => {
-    const handler = () => setIsScrolled(window.scrollY > 0)
-    window.addEventListener("scroll", handler)
-    return () => window.removeEventListener("scroll", handler)
-  }, [])
+  // useEffect(() => {
+  //   const handler = () => setIsScrolled(window.scrollY > 0)
+  //   window.addEventListener("scroll", handler)
+  //   return () => window.removeEventListener("scroll", handler)
+  // }, [])
+
+   useEffect(() => {
+   const handler = () => setIsScrolled(window.scrollY > 0)
+   // run immediately on mount / route change:
+   handler()
+   window.addEventListener("scroll", handler)
+   return () => window.removeEventListener("scroll", handler)
+ }, [pathname])  // ← re‐run when pathname changes (e.g. back button)
 
   const { navigation } = useStaticQuery(graphql`
     query HeaderNavigation {
