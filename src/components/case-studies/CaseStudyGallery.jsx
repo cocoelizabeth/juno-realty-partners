@@ -119,34 +119,7 @@ const NextButton = styled.button`
     cursor: default;
   }
 `
-// export const PrevButton = styled.button`
-//   background: transparent;
-//   border: none;
-//   font-size: 2rem;
-//   color: var(--color-accent);
-//   cursor: pointer;
-//   z-index: 10;
-//   &:hover {
-//     /* opacity: 0.5; */
-//   }
-//   left: 0;
-//   padding-top: 0;
-//   margin-right: 0;
-// `
 
-// export const NextButton = styled.button`
-//   background: transparent;
-//   border: none;
-//   font-size: 2rem;
-//   color: var(--color-accent);
-//   cursor: pointer;
-//   z-index: 10;
-//   &:hover {
-//     /* opacity: 0.5; */
-//   }
-//   right: 0;
-//   margin-left: 0;
-// `
 /**
  * Dots/navigation at the bottom
  */
