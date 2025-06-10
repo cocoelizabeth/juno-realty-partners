@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 import {
   PageWrapper,
   Breadcrumbs,
@@ -29,6 +30,7 @@ export default function CaseStudyPage({ data }) {
     content, // array of CaseStudyTextBlock entries
     gallery, // array of Asset images
     moreFeaturedProjects, // array of other caseStudy entries
+    seoMetadata
   } = cs
 
 
@@ -38,6 +40,15 @@ export default function CaseStudyPage({ data }) {
 
   return (
     <Layout>
+            <Seo
+              title={seoMetadata.seoTitle}
+              description={seoMetadata.seoDescription}
+              image={seoMetadata.featuredImage?.gatsbyImageData}
+              canonical={seoMetadata.canonicalUrl}
+              noindex={seoMetadata.noindex}
+              nofollow={seoMetadata.nofollow}
+            />
+      
       <PageWrapper>
         <Breadcrumbs>
           <Link to="/portfolio">PORTFOLIO</Link>
@@ -115,6 +126,16 @@ export default function CaseStudyPage({ data }) {
 export const query = graphql`
   query CaseStudyBySlug($slug: String!) {
     contentfulCaseStudy(slug: { eq: $slug }) {
+      seoMetadata {
+        seoTitle
+        seoDescription
+        featuredImage {
+          description
+          gatsbyImageData
+        }
+        noindex
+        nofollow
+      }
       caseStudyTitle
       projectNameForCaseStudy
       otherOverviewFacts

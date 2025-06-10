@@ -26,14 +26,14 @@ export default function LandingPage({ data, pageContext }) {
 
   return (
     <Layout>
-      {/* <Seo
+      <Seo
         title={seoMetadata.seoTitle}
         description={seoMetadata.seoDescription}
         image={seoMetadata.featuredImage?.gatsbyImageData}
         canonical={seoMetadata.canonicalUrl}
         noindex={seoMetadata.noindex}
         nofollow={seoMetadata.nofollow}
-      /> */}
+      />
 
       <HeaderBanner banner={headerBanner} />
 
