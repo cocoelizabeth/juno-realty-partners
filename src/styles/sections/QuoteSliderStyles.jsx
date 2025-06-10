@@ -155,45 +155,144 @@ export const AuthorLine = styled.p`
   justify-content: center;
   line-height: 1.2;
   
-`
-export const ArrowButtonContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: var(--space-gap);
-  /* margin-top: var(--space-gap); */
-`
-// ➑ Prev/Next arrow buttons
+// `
+// export const ArrowButtonContainer = styled.div`
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   column-gap: var(--space-gap);
+//   /* margin-top: var(--space-gap); */
+// `
+// // ➑ Prev/Next arrow buttons
+// export const PrevButton = styled.button`
+//   background: transparent;
+//   border: none;
+//   font-size: 2rem;
+//   color: var(--color-accent);
+//   cursor: pointer;
+//   z-index: 10;
+//   &:hover {
+//     /* opacity: 0.5; */
+//   }
+//   left: 0;
+//   padding-top: 0;
+//   margin-right: 0;
+// `
+
+// export const NextButton = styled.button`
+//   background: transparent;
+//   border: none;
+//   font-size: 2rem;
+//   color: var(--color-accent);
+//   cursor: pointer;
+//   z-index: 10;
+//   &:hover {
+//     /* opacity: 0.5; */
+//   }
+//   right: 0;
+//   margin-left: 0;
+// `
 export const PrevButton = styled.button`
-  background: transparent;
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
   border: none;
-  font-size: 2rem;
-  color: var(--color-accent);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  &:hover {
-    /* opacity: 0.5; */
-  }
+  color: white;
+  background: none;
   left: 0;
-  padding-top: 0;
-  margin-right: 0;
+  /* filter: drop-shadow(2px 2px 15px #000); */
+   /* background-color:rgba(0,0,0, .5); */
+   color: var(--color-accent);
+     left: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)));
+
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  &:hover {
+    cursor: pointer;
+    /* background-color: rgba(0, 0, 0, 1); */
+    /* filter: drop-shadow(0 0 0 #000); */
+  }
+    @media only screen and (min-width: 480px) {
+    left: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)* 1.5));
+        svg {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+      left: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)));
+    /* left: 0.5rem; */
+    svg {
+      height: 100px;
+      width: 100px;
+    }
+  }
 `
 
 export const NextButton = styled.button`
-  background: transparent;
-  border: none;
-  font-size: 2rem;
-  color: var(--color-accent);
-  cursor: pointer;
-  z-index: 10;
-  &:hover {
-    /* opacity: 0.5; */
-  }
+  position: absolute;
+  top: 50%;
   right: 0;
-  margin-left: 0;
-`
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  color: var(--color-accent);
+  background: none;
+  /* filter: drop-shadow(2px 2px 15px rgba(0,0,0,1)); */
+  /* background-color:rgba(0,0,0, .5); */
+  right: calc((((100% - var(--slide-size))/2) - var(--slide-spacing))/2);
+  right: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)));
+  /* right: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)/12)); */
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  @media only screen and (min-width: 480px) {
+    right: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)* 1.5));
+        svg {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+
+  @media only screen and (min-width: 768px) {
+      right: calc(((100% - var(--slide-size))/2) - (var(--slide-spacing)));
+    svg {
+      height: 100px;
+      width: 100px;
+    }
+  }
+`
 // ➒ Dots container (bottom center)
 export const DotsContainer = styled.div`
   display: flex;

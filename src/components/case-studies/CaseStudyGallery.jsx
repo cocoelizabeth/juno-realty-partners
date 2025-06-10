@@ -3,11 +3,7 @@ import React, { useCallback, useState, useEffect } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { SlArrowLeftCircle } from "react-icons/sl";
-import { TfiArrowCircleRight } from "react-icons/tfi";
-import { RiArrowRightSFill, RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
 
 

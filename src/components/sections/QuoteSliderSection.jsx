@@ -18,6 +18,9 @@ import {
 } from "../../styles/sections/QuoteSliderStyles"
 import QuotationMark1 from "../../images/quotation-mark-1.svg"
 import useEmblaCarousel from "embla-carousel-react"
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
+import { LiaLongArrowAltLeftSolid } from "react-icons/lia";
+
 
 // Customize how the quote’s RichText is rendered
 const richTextOptions = {
@@ -70,6 +73,13 @@ export default function QuoteSliderSection({ quotes = [] }) {
 
   return (
     <QuoteSliderSectionWrapper>
+
+            <PrevButton onClick={scrollPrev} >
+              <RiArrowLeftSLine />
+            </PrevButton>
+            <NextButton onClick={scrollNext} >
+              <RiArrowRightSLine />
+            </NextButton>
       {/* Embla viewport & container */}
       <SliderViewport ref={viewportRef}>
         <SliderContainer>
@@ -113,14 +123,14 @@ export default function QuoteSliderSection({ quotes = [] }) {
       </DotsContainer>
 
       {/* —— Prev/Next arrows */}
-      <ArrowButtonContainer>
+      {/* <ArrowButtonContainer>
         <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
           ←
         </PrevButton>
         <NextButton onClick={scrollNext} aria-label="Next testimonial">
           →
         </NextButton>
-      </ArrowButtonContainer>
+      </ArrowButtonContainer> */}
 
 
     </QuoteSliderSectionWrapper>

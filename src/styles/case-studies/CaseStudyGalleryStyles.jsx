@@ -92,7 +92,7 @@ export const PrevButton = styled.button`
     /* filter: drop-shadow(0 0 0 #000); */
   }
 
-  @media only screen and (min-width: 929px) {
+  @media only screen and (min-width: 928px) {
     /* left: 0.5rem; */
     svg {
       height: 40px;
@@ -133,7 +133,7 @@ export const NextButton = styled.button`
     cursor: default;
   }
 
-  @media only screen and (min-width: 929px) {
+  @media only screen and (min-width: 928px) {
     /* right: 0.5rem; */
     svg {
       height: 40px;
