@@ -144,6 +144,7 @@ export const ContentSection = styled.div`
   display: flex;
   flex-direction: var(--content-section-flex-direction);
   align-items: flex-start;
+
 `
 
 // -------------- Overview Section --------------
@@ -157,7 +158,7 @@ export const OverviewSectionStyles = styled.section`
  top: var(--overview-top);
  height: var(--overview-height);
  min-height: var(--overview-height);
- border-left: var(--overview-border-left);
+ /* border-left: var(--overview-border-left); */
  padding-left: var(--overview-padding-left);
  /* background-color: red; */
   
@@ -203,6 +204,11 @@ export const CaseStudyContentWrapper = styled.div`
   margin-bottom: var(--space-xxl);
   display: flex;
   flex-direction: column;
+    border-right: none;
+
+     @media only screen and (min-width: 928px) {
+          border-right: 1px solid var(--color-medium);
+     }
   h2.case-study-title {
     color: var(--color-accent);
      margin-bottom:  var(--case-study-space-md);
