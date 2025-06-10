@@ -50,38 +50,7 @@ export default function QuoteSliderSection({ quotes = [] }) {
 
   // Measure heights whenever window or Embla resizes
   const resizeObserver = useRef(null)
-  // const calculateMaxHeight = useCallback(() => {
-  //     if (slideRefs.current.length === 0) return
-  //     let max = 0
-  //     slideRefs.current.forEach(slideEl => {
-  //         if (!slideEl) return
-  //         const h = slideEl.offsetHeight
-  //         if (h > max) max = h
-  //     })
-  //     setMaxHeight(max)
-  // }, [])
 
-  //   useEffect(() => {
-  //     if (!embla) return
-  //     // Whenever slide changes, recalc heights
-  //     calculateMaxHeight()
-
-  //     // Attach a ResizeObserver to recalc when a slide’s content or window changes
-  //     if (typeof ResizeObserver === "function") {
-  //       resizeObserver.current = new ResizeObserver(() => {
-  //         calculateMaxHeight()
-  //       })
-  //       slideRefs.current.forEach(el => {
-  //         if (el) resizeObserver.current.observe(el)
-  //       })
-  //     }
-
-  //     return () => {
-  //       if (resizeObserver.current) {
-  //         resizeObserver.current.disconnect()
-  //       }
-  //     }
-  //   }, [embla, calculateMaxHeight])
 
   // Listen for embla’s “select” event to update dots
   useEffect(() => {
@@ -105,7 +74,12 @@ export default function QuoteSliderSection({ quotes = [] }) {
       <SliderViewport ref={viewportRef}>
         <SliderContainer>
           {quotes.map((item, index) => (
-            <Slide key={index} ref={el => (slideRefs.current[index] = el)}>
+            // <Slide key={index} ref={el => (slideRefs.current[index] = el)}>
+            <Slide 
+              key={index}
+              ref={el => (slideRefs.current[index] = el)}
+              isSelected={index === selectedIndex}
+            >
               <QuoteCard>
                 <QuotationMark1
                   className="quotation-svg"

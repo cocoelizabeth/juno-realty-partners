@@ -5,145 +5,23 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-/**
- * The wrapper for the entire gallery slider
- */
-const EmblaViewport = styled.div`
-  overflow: hidden;
-  width: 100%;
-`
-
-/**
- * The flex‐container holding all slides
- */
-const EmblaContainer = styled.div`
-  display: flex;
-  user-select: none;
-  -webkit-touch-callout: none;
-  margin-left: -1rem; /* to allow a bit of peeking on mobile */
-`
-
-/**
- * Each individual slide
- */
-const EmblaSlide = styled.div`
-  position: relative;
-  flex: 0 0 100%; /* 80% of the viewport width */
-  /* margin-left: 1rem;       */
-  box-sizing: border-box;
-
-  /* Adjust height as needed; auto will let the image dictate it */
-  height: auto;
+import { SlArrowLeftCircle } from "react-icons/sl";
+import { TfiArrowCircleRight } from "react-icons/tfi";
+import { RiArrowRightSFill, RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 
 
-  @media (min-width: 768px) {
-    flex: 0 0 100%;
-    /* margin-left: 1.5rem; */
-    height: auto;
-    max-height: 55vh;
-  }
-
-  @media (min-width: 1024px) {
-    flex: 0 0 100%;
-    /* margin-left: 2rem; */
-    /* height: auto; */
-   
-  }
-`
-
-/**
- * The actual image “card” inside each slide
- */
-const SlideImageWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-`
 
 
-const ArrowButtonContainer = styled.div`
-      /* width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: var(--space-gap); */
-
-  
-`
-/**
- * Prev/Next arrow buttons
- */
-const PrevButton = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 0.5rem;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  
-  border: none;
-  border-radius: 50%;
-  padding: 0.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  /* color: white;
-  background: var(--color-dark); */
-  &:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
-`
-
-const NextButton = styled.button`
-  position: absolute;
-  top: 50%;
-  right: 0.5rem;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 50%;
-  padding: 0.25rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-
-    /* color: white;
-  background: var(--color-dark); */
-  &:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
-`
-
-/**
- * Dots/navigation at the bottom
- */
-const DotsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  cursor: pointer !important;
-`
-
-const Dot = styled.button`
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  border: none;
-  background: ${props => (props.selected ? "var(--color-dark)" : "var(--color-medium)")};
-  transition: background 0.2s ease;
-    cursor: pointer !important;
-  &:hover {
-    background: #777;
-    cursor: pointer;
-  }
-`
+import { 
+    EmblaViewport,
+    EmblaContainer,
+    EmblaSlide,
+    SlideImageWrapper,
+    PrevButton,
+    NextButton,
+    DotsContainer,
+    Dot
+} from "../../styles/case-studies/CaseStudyGalleryStyles"
 
 export default function CaseStudyGallery({ gallery }) {
   // ➊ Set up the Embla carousel hook
@@ -187,10 +65,10 @@ export default function CaseStudyGallery({ gallery }) {
       {/* Prev & Next Buttons */}
          
       <PrevButton onClick={scrollPrev} disabled={!canScrollPrev}>
-        <MdKeyboardArrowLeft size={24} />
+        <RiArrowLeftSLine />
       </PrevButton>
       <NextButton onClick={scrollNext} disabled={!canScrollNext}>
-        <MdKeyboardArrowRight size={24} />
+        <RiArrowRightSLine />
       </NextButton>
 
       {/* ➐ Embla viewport and container */}
