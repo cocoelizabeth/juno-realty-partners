@@ -10,7 +10,6 @@
 
 require("dotenv").config()
 
-
 module.exports = {
   siteMetadata: {
     title: `Juno Realty Partners`,
@@ -57,9 +56,9 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /src\/images/
-        }
-      }
+          include: /src\/images/,
+        },
+      },
     },
     {
       resolve: `gatsby-source-contentful`,
@@ -69,5 +68,25 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/404/`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://junorp.com`,
+        sitemap: `https://junorp.com/sitemap.xml`,
+        policy: [
+          {
+            userAgent: `*`,
+            allow: `/`, // let search engines crawl everything
+          },
+        ],
+      },
+    },
   ],
 }
