@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function Seo({
   title,
   description,
+  ogMetaDescription,
   image,
   canonical,
   noindex,
@@ -26,7 +27,8 @@ export default function Seo({
 
 
   const defaultTitle = site.siteMetadata?.title // "Juno Realty Partners"
-  const metaDescription = description || site.siteMetadata.description
+  const seoDescroption = description || site.siteMetadata.description
+  const ogMetaDescriptionText = ogMetaDescription || description
  
   const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, "")
 
@@ -44,7 +46,7 @@ export default function Seo({
       <title>
         {defaultTitle ? `${title} | ${defaultTitle}` : title}
       </title>
-      <meta name="description" content={metaDescription} />
+      <meta name="description" content={seoDescroption} />
 
       {/* Canonical URL */}
       {canonical && (
@@ -67,7 +69,7 @@ export default function Seo({
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content= {defaultTitle ? `${title} | ${defaultTitle}` : title} />
-      <meta property="og:description" content={metaDescription} />
+      <meta property="og:description" content={ogMetaDescriptionText} />
       {metaImage && (
           <meta property="og:image" content={metaImage} />
       )}
@@ -79,7 +81,7 @@ export default function Seo({
       {/* Twitter */}
       <meta name="twitter:card" content={metaImage ? "summary_large_image" : "summary"} />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:description" content={ogMetaDescriptionText} />
       {metaImage && <meta name="twitter:image" content={metaImage} />}
 
       {/* Any additional tags passed in */}

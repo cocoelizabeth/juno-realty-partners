@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           seoMetadata {
             seoTitle
             seoDescription
+            ogMetaDescription
             featuredImage {
               description
               gatsbyImageData
@@ -44,6 +45,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           seoMetadata: {
             title: seoMetadata.seoTitle,
             description: seoMetadata.seoDescription,
+            ogMetaDescription: seoMetadata.ogMetaDescription,
             image: seoMetadata.featuredImage?.gatsbyImageData,
             canonical: seoMetadata.canonicalUrl,
             noIndex: seoMetadata.noindex,
@@ -63,6 +65,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           seoMetadata {
             seoTitle
             seoDescription
+            ogMetaDescription
             featuredImage {
               description
               gatsbyImageData
@@ -81,7 +84,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const caseStudies = caseStudiesResult.data.allContentfulCaseStudy.nodes
-  console.log(caseStudies)
   caseStudies.forEach(cs => {
 
     createPage({
@@ -92,6 +94,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
          seoMetadata: {
             title: cs.seoMetadata.seoTitle,
             description: cs.seoMetadata.seoDescription,
+            ogMetaDescription: cs.seoMetadata.ogMetaDescription,
             image: cs.seoMetadata.featuredImage?.gatsbyImageData,
             canonical: cs.seoMetadata.canonicalUrl,
             noIndex: cs.seoMetadata.noindex,

@@ -25,6 +25,7 @@ export default function LandingPage({ data, pageContext }) {
       <Seo
         title={seoMetadata.title}
         description={seoMetadata.description}
+        ogMetaDescription={seoMetadata.ogMetaDescription}
         image={seoMetadata.image}
         canonical={seoMetadata.canonical}
         noindex={seoMetadata.noindex}
