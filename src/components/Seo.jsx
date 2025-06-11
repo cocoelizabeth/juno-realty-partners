@@ -29,8 +29,7 @@ export default function Seo({
   const metaDescription = description || site.siteMetadata.description
  
   const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, "")
-
- debugger
+debuggr
 
 
   // const metaImage = image
@@ -46,7 +45,7 @@ export default function Seo({
       <title>
         {defaultTitle ? `${title} | ${defaultTitle}` : title}
       </title>
-      {/* <meta name="description" content={metaDescription} /> */}
+      <meta name="description" content={metaDescription} />
 
       {/* Canonical URL */}
       {canonical && (
@@ -79,10 +78,10 @@ export default function Seo({
       )}
 
       {/* Twitter */}
-      {/* <meta name="twitter:card" content={metaImage ? "summary_large_image" : "summary"} />
+      <meta name="twitter:card" content={metaImage ? "summary_large_image" : "summary"} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
-      {metaImage && <meta name="twitter:image" content={metaImage} />} */}
+      {metaImage && <meta name="twitter:image" content={metaImage} />}
 
       {/* Any additional tags passed in */}
       {children}
