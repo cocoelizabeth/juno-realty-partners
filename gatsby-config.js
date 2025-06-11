@@ -17,6 +17,7 @@ module.exports = {
     description: `Want to sell your land or develop it with a partner? Juno offers creative,  tailored strategies that maximize land value and overcome site challenges.`,
     author: `John Favreau`,
     siteUrl: `https://junorp.com/`,
+    logo: `/images/juno-realty-partners-logo-black.svg`,
   },
   plugins: [
     {

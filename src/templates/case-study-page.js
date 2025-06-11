@@ -19,7 +19,7 @@ import FeaturedProjectItem from "../components/case-studies/FeaturedProjectItem"
 import CaseStudyGallery from "../components/case-studies/CaseStudyGallery"
 
 export default function CaseStudyPage({ data, pageContext }) {
-  // const currentSlug = pageContext.slug // comment back in if needed
+  const currentSlug = pageContext.slug // comment back in if needed
   const seoMetadata = pageContext.seoMetadata
   const cs = data.contentfulCaseStudy
   const {
@@ -34,6 +34,12 @@ export default function CaseStudyPage({ data, pageContext }) {
   // The connected project data:
   const project = cs.project
 
+  const crumbs = [
+    { name: "Portfolio", url: "/portfolio/" },
+    { name: projectNameForCaseStudy, url: `/projects/${currentSlug}/` },
+  ]
+
+
   return (
     <Layout>
       <Seo
@@ -44,6 +50,7 @@ export default function CaseStudyPage({ data, pageContext }) {
         canonical={seoMetadata.canonical}
         noindex={seoMetadata.noindex}
         nofollow={seoMetadata.nofollow}
+        breadcrumbs={crumbs}
       />
       <PageWrapper>
         <Breadcrumbs>

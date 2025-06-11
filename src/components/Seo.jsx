@@ -11,6 +11,7 @@ export default function Seo({
   canonical,
   noindex,
   nofollow,
+  breadcrumbs = [],
   children,
 }) {
   const { site } = useStaticQuery(graphql`
@@ -21,6 +22,7 @@ export default function Seo({
           description
           author
           siteUrl
+          logo
         }
       }
     }
@@ -41,6 +43,39 @@ export default function Seo({
   const ogMetaDescriptionText = ogMetaDescription || description
 
   const metaImage = image ? image.images.fallback.src : null
+
+    
+  // ——— Build the JSON-LD graph ———
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: site.siteMetadata.title,
+        url: siteUrl,
+        logo: `${siteUrl}${site.siteMetadata.logo}`,
+      },
+      {
+        "@type": "WebSite",
+        name: site.siteMetadata.title,
+        url: siteUrl,
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteUrl}/?s={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+      breadcrumbs.length > 0 && {
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: `${siteUrl}${crumb.url}`,
+        })),
+      },
+    ].filter(Boolean),
+  }
 
   return (
     <Helmet>
@@ -82,6 +117,11 @@ export default function Seo({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={ogMetaDescriptionText} />
       {metaImage && <meta name="twitter:image" content={metaImage} />}
+
+      {/* ——— Structured data ——— */}
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
 
       {/* Any additional tags passed in */}
       {children}

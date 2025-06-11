@@ -18,7 +18,17 @@ export default function LandingPage({ data, pageContext }) {
   const currentSlug = pageContext.slug
   const seoMetadata = pageContext.seoMetadata
 
-  const { headerBanner, contentSections } = data.contentfulLandingPage
+  const { pageTitle, headerBanner, contentSections } =
+    data.contentfulLandingPage
+
+
+  const isHome = currentSlug === "home"
+  const crumbs = isHome
+    ? [] // no breadcrumbs on the homepage
+    : [
+        { name: "Home", url: "/" },
+        { name: pageTitle, url: `/${currentSlug}/` },
+      ]
 
   return (
     <Layout>
@@ -30,6 +40,7 @@ export default function LandingPage({ data, pageContext }) {
         canonical={seoMetadata.canonical}
         noindex={seoMetadata.noindex}
         nofollow={seoMetadata.nofollow}
+        breadcrumbs={crumbs}
       />
 
       <HeaderBanner banner={headerBanner} />
