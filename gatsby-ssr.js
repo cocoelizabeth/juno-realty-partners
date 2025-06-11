@@ -13,10 +13,16 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
 
   // Inject the Adobe Fonts stylesheet link
   setHeadComponents([
+      <link
+      key="preconnect-typekit"
+      rel="preconnect"
+      href="https://use.typekit.net"
+      crossOrigin="anonymous"
+    />,
     <link
       key="typekit"
       rel="stylesheet"
-      href="https://use.typekit.net/trc4otl.css"
+      href="https://use.typekit.net/trc4otl.css?display=swap"
     />,
     <meta
       key="format-detection"

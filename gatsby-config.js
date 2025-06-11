@@ -24,6 +24,7 @@ module.exports = {
       options: {
         typekit: {
           id: "trc4otl",
+          url: "https://use.typekit.net/trc4otl.css?display=swap",
         },
       },
     },

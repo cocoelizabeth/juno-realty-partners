@@ -1,4 +1,4 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -29,6 +29,7 @@ export default function LandingPage({ data, pageContext }) {
         { name: "Home", url: "/" },
         { name: pageTitle, url: `/${currentSlug}/` },
       ]
+
 
   return (
     <Layout>
