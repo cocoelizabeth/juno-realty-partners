@@ -41,6 +41,7 @@ export default function LandingPage({ data, pageContext }) {
         noindex={seoMetadata.noindex}
         nofollow={seoMetadata.nofollow}
         breadcrumbs={crumbs}
+        preloadImage={headerBanner?.heroImage.gatsbyImageData.images.fallback.src}
       />
 
       <HeaderBanner banner={headerBanner} />
@@ -163,7 +164,12 @@ export const query = graphql`
         heading
         heroImage {
           description
-          gatsbyImageData(layout: FULL_WIDTH)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: DOMINANT_COLOR
+            formats: [AUTO, WEBP, AVIF]
+            breakpoints: [640, 960, 1280, 1920]
+          )
         }
       }
       contentSections {

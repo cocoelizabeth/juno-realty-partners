@@ -23,5 +23,10 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
       name="format-detection"
       content="address=no"
     />,
+    <meta
+      key="viewport"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />,
   ])
 }

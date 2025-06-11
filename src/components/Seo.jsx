@@ -12,6 +12,7 @@ export default function Seo({
   noindex,
   nofollow,
   breadcrumbs = [],
+  preloadImage,
   children,
 }) {
   const { site } = useStaticQuery(graphql`
@@ -85,7 +86,15 @@ export default function Seo({
 
       {/* Canonical Tag: always non-www.siteUrl + path */}
       <link rel="canonical" href={canonicalUrl} />
-
+      
+      <link rel="preconnect" href="https://images.ctfassets.net" crossOrigin />
+     {preloadImage && (
+       <link
+         rel="preload"
+         as="image"
+         href={preloadImage}
+       />
+     )}
       {/* Robots */}
       {(noindex || nofollow) && (
         <meta

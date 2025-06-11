@@ -19,6 +19,7 @@ const HeaderBanner = data => {
         loading="eager"
         className="hero-image-container"
         imgClassName="hero-image"
+        imgStyle={{ objectFit: "cover" }}
       />
       <div className="image-overlay"></div>
         <div className="heading-container">
