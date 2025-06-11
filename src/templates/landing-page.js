@@ -15,22 +15,18 @@ import ProjectGridSection from "../components/sections/ProjectGridSection"
 import ContactTextSection from "../components/sections/ContactTextSection"
 
 export default function LandingPage({ data, pageContext }) {
-  const landingPage = data.contentfulLandingPage
-  //   const seoMetadata = data.contentfulLandingPage.seoMetadata
-
-  const { pageTitle, headerBanner, seoMetadata, contentSections } =
-    data.contentfulLandingPage
-
   const currentSlug = pageContext.slug
+  const seoMetadata = pageContext.seoMetadata
 
+  const { headerBanner, contentSections } = data.contentfulLandingPage
 
   return (
     <Layout>
       <Seo
-        title={seoMetadata.seoTitle}
-        description={seoMetadata.seoDescription}
-        image={seoMetadata.featuredImage?.gatsbyImageData}
-        canonical={seoMetadata.canonicalUrl}
+        title={seoMetadata.title}
+        description={seoMetadata.description}
+        image={seoMetadata.image}
+        canonical={seoMetadata.canonical}
         noindex={seoMetadata.noindex}
         nofollow={seoMetadata.nofollow}
       />
@@ -38,7 +34,6 @@ export default function LandingPage({ data, pageContext }) {
       <HeaderBanner banner={headerBanner} />
 
       {contentSections.map(section => {
-
         switch (section.sectionType) {
           case "CenteredCTA":
             return (
@@ -79,55 +74,55 @@ export default function LandingPage({ data, pageContext }) {
             )
           case "QuoteSingular":
             return (
-                <QuoteSingularBlock
-                    key={section.quotes[0].internalName}
-                    body={section.quotes[0].body}
-                    speaker={section.quotes[0].speaker}
-                    type={section.quotes[0].type}
-                />
+              <QuoteSingularBlock
+                key={section.quotes[0].internalName}
+                body={section.quotes[0].body}
+                speaker={section.quotes[0].speaker}
+                type={section.quotes[0].type}
+              />
             )
           case "QuoteSlider":
-              return (
-                 <QuoteSliderSection
-                  key={section.internalName}
-                  quotes={section.quotes}
-                  sectionHeading={section.heading}
-                 />
-              )
+            return (
+              <QuoteSliderSection
+                key={section.internalName}
+                quotes={section.quotes}
+                sectionHeading={section.heading}
+              />
+            )
           case "Accordion":
-              return (
-                <AccordionSection
-                  key={section.internalName}
-                  features={section.features}
-                  sectionHeading={section.heading}
-                  />
-              )
+            return (
+              <AccordionSection
+                key={section.internalName}
+                features={section.features}
+                sectionHeading={section.heading}
+              />
+            )
 
-            case "StatsFeatures":
-              return (
-                <StatsFeaturesSection key={
-                section.internalName} 
-                stats={section.stats} 
+          case "StatsFeatures":
+            return (
+              <StatsFeaturesSection
+                key={section.internalName}
+                stats={section.stats}
                 statsDisclaimer={section.statsDisclaimer}
               />
-              )
+            )
 
-            case "Leadership":
-              return (
-                <LeadershipSection 
-                  key={section.internalName}
-                  sectionHeading={section.heading}
-                  people={section.people}
+          case "Leadership":
+            return (
+              <LeadershipSection
+                key={section.internalName}
+                sectionHeading={section.heading}
+                people={section.people}
               />
-              )
-            case "ProjectGrid":
-              return (
-                <ProjectGridSection 
-                  key={section.internalName}
-                  projects={section.projects}
+            )
+          case "ProjectGrid":
+            return (
+              <ProjectGridSection
+                key={section.internalName}
+                projects={section.projects}
               />
-              )
-            case "ContactText":
+            )
+          case "ContactText":
             return (
               <ContactTextSection
                 key={section.internalName}
@@ -159,16 +154,6 @@ export const query = graphql`
           gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-      seoMetadata {
-        seoTitle
-        seoDescription
-        featuredImage {
-          description
-          gatsbyImageData
-        }
-        noindex
-        nofollow
-      }
       contentSections {
         __typename
         ... on ContentfulPageSection {
@@ -197,7 +182,9 @@ export const query = graphql`
           }
           quotes {
             internalName
-            body {raw}
+            body {
+              raw
+            }
             speaker
             style
           }
@@ -212,14 +199,13 @@ export const query = graphql`
             }
             photo {
               description
-              gatsbyImageData (aspectRatio:0.8125 )
+              gatsbyImageData(aspectRatio: 0.8125)
             }
           }
 
           projects {
             __typename
             ... on ContentfulProject {
-  
               title
               featuredProject
               units
@@ -229,12 +215,11 @@ export const query = graphql`
               role
               heroImage {
                 description
-                gatsbyImageData (aspectRatio: 1.197)
+                gatsbyImageData(aspectRatio: 1.197)
               }
             }
 
             ... on ContentfulCaseStudy {
- 
               internalName
               projectNameForCaseStudy
               caseStudyTitle
@@ -242,7 +227,7 @@ export const query = graphql`
               project {
                 heroImage {
                   description
-                  gatsbyImageData 
+                  gatsbyImageData
                 }
                 type
                 units
@@ -251,13 +236,8 @@ export const query = graphql`
               }
             }
           }
-
         }
       }
     }
   }
 `
-// missing these fields on caseStudy
-              // content
-              // gallery
-              // moreFeaturedProjects

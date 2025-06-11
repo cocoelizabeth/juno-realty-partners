@@ -13,6 +13,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         nodes {
           slug
           contentful_id
+          seoMetadata {
+            seoTitle
+            seoDescription
+            featuredImage {
+              description
+              gatsbyImageData
+            }
+            noindex
+            nofollow
+          }
         }
       }
     }
@@ -23,14 +33,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  landingResult.data.allContentfulLandingPage.nodes.forEach(({ slug }) => {
-    const pagePath = slug === "home" ? "/" : `/${slug}/`
-    createPage({
-      path: pagePath,
-      component: path.resolve("./src/templates/landing-page.js"),
-      context: { slug },
-    })
-  })
+  landingResult.data.allContentfulLandingPage.nodes.forEach(
+    ({ slug, seoMetadata }) => {
+      const pagePath = slug === "home" ? "/" : `/${slug}/`
+      createPage({
+        path: pagePath,
+        component: path.resolve("./src/templates/landing-page.js"),
+        context: {
+          slug: slug,
+          seoMetadata: {
+            title: seoMetadata.seoTitle,
+            description: seoMetadata.seoDescription,
+            image: seoMetadata.featuredImage?.gatsbyImageData,
+            canonical: seoMetadata.canonicalUrl,
+            noIndex: seoMetadata.noindex,
+            nofollow: seoMetadata.nofollow,
+          },
+        },
+      })
+    }
+  )
 
   // ─── 2) Generate Case Study Pages ────────────────────────────────────────────
   const caseStudiesResult = await graphql(`
@@ -38,6 +60,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allContentfulCaseStudy {
         nodes {
           slug
+          seoMetadata {
+            seoTitle
+            seoDescription
+            featuredImage {
+              description
+              gatsbyImageData
+            }
+            noindex
+            nofollow
+          }
         }
       }
     }
@@ -49,11 +81,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const caseStudies = caseStudiesResult.data.allContentfulCaseStudy.nodes
-  caseStudies.forEach((cs) => {
+  console.log(caseStudies)
+  caseStudies.forEach(cs => {
+
     createPage({
       path: `/projects/${cs.slug}/`,
       component: path.resolve("./src/templates/case-study-page.js"),
-      context: { slug: cs.slug },
+      context: { 
+        slug: cs.slug,
+         seoMetadata: {
+            title: cs.seoMetadata.seoTitle,
+            description: cs.seoMetadata.seoDescription,
+            image: cs.seoMetadata.featuredImage?.gatsbyImageData,
+            canonical: cs.seoMetadata.canonicalUrl,
+            noIndex: cs.seoMetadata.noindex,
+            nofollow: cs.seoMetadata.nofollow,
+          },
+       },
     })
   })
 }

@@ -29,7 +29,6 @@ export default function Seo({
   const metaDescription = description || site.siteMetadata.description
  
   const siteUrl = site.siteMetadata.siteUrl.replace(/\/$/, "")
-debuggr
 
 
   // const metaImage = image
@@ -38,7 +37,7 @@ debuggr
       const metaImage = image
     ? image.images.fallback.src
     : null
-    debugger
+
   return (
     <Helmet>
       {/* Primary tags */}
