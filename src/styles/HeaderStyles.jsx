@@ -10,10 +10,10 @@ export const HeaderContainer = styled.header`
 
   /* ➊ switch from transparent → white */
   background-color: ${props =>
-    props.isScrolled ? "var(--color-light)" : "transparent"};
+    props.$isScrolled ? "var(--color-light)" : "transparent"};
 
-  box-shadow: ${({ isScrolled }) =>
-    isScrolled ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
+  box-shadow: ${({ $isScrolled }) =>
+    $isScrolled ? "0 2px 12px rgba(0,0,0,0.1)" : "none"};
 `
 
 
@@ -71,9 +71,9 @@ export const Nav = styled.nav`
     flex-direction: column;
     padding-top: var(--space-lg);
     color: var(--color-light);
-    transform: translateX(${props => (props.open ? "0" : "100%")});
+    transform: translateX(${props => (props.$open ? "0" : "100%")});
     // only animate when we’re opening
-    transition: transform ${props => (props.open ? `0.3s` : `0s`)} ease;
+    transition: transform ${props => (props.$open ? `0.3s` : `0s`)} ease;
   }
 `
 
@@ -96,7 +96,7 @@ export const NavItem = styled.li``
 
 export const NavLink = styled(Link)`
   color: ${props =>
-    props.isScrolled ? "var(--color-dark)" : "var(--color-light)"};
+    props.$isScrolled ? "var(--color-dark)" : "var(--color-light)"};
   /* transition: fill 0.3s ease; */
   text-decoration: none;
   &.active {
@@ -134,7 +134,7 @@ export const MobileToggle = styled.button`
     z-index: 1000;
     // hambuger menu is only black when the menu isScrolled and is notOpen
     color: ${props =>
-      props.isScrolled && !props.open ? "var(--color-dark)" : "var(--color-light)"};
+      props.$isScrolled && !props.$open ? "var(--color-dark)" : "var(--color-light)"};
   }
 `
 

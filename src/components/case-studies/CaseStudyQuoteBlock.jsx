@@ -1,5 +1,4 @@
 import React from "react"
-import { TextBlockSection } from "../../styles/case-studies/CaseStudyPageStyles"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import {
   QuoteWrapper,
@@ -8,8 +7,9 @@ import {
   QuoteText,
   QuoteSpeaker,
 } from "../../styles/case-studies/CaseStudyQuoteStyles"
+
 export default function CaseStudyQuoteBlock({ quote }) {
-  let inner
+  let inner;
 
   switch (quote.style) {
     case "Case Study - Aligned to right of text":

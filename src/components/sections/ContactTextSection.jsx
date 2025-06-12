@@ -13,7 +13,7 @@ export default function ContactTextSection({ heading, body, ctaText, ctaUrl, cur
   let path = ctaUrl.startsWith("/") ? ctaUrl : `/${ctaUrl}`
 
   return (
-    <SectionWrapper currentSlug={currentSlug}>
+    <SectionWrapper $currentSlug={currentSlug}>
       {heading && <Title>{heading}</Title>}
       {/* only render <Body> if there's actual rich‐text JSON */}
       {hasBody && (

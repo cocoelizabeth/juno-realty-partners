@@ -15,7 +15,7 @@ import { TextBlockSection } from "../../styles/case-studies/CaseStudyPageStyles"
 export default function CaseStudyTextBlock({ content }) {
   const heading = content.heading // e.g. “The Opportunity”, “Challenges”, “Solutions”
   const bodyRaw = content.body?.raw
-  const quoteRef = content.quote // optional quote entry
+  // const quoteRef = content.quote // optional quote entry
   const references = content.body?.references || []
 
   const richTextOptions = {

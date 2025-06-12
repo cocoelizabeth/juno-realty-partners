@@ -24,7 +24,7 @@ export default function FeaturedProjectItem({ featuredProject, currentSlug }) {
     : `/projects/${featuredProject.slug}`
 
   return (
-    <FeaturedProjectItemWrapper currentSlug={currentSlug}>
+    <FeaturedProjectItemWrapper $currentSlug={currentSlug}>
       <ProjectImageLink to={ctaLink} className="featured-project-image-wrapper">
         <GatsbyImage
           image={heroImage.gatsbyImageData}

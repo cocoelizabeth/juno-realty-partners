@@ -88,7 +88,7 @@ export const Slide = styled.div`
   flex: 0 0 var(--slide-size);
   height: max-content;
 
-    opacity: ${props => (props.isSelected ? 1 : 0.5)};
+    opacity: ${props => (props.$isSelected ? 1 : 0.5)};
   transition: opacity 0.3s ease;
 
   /* Prevent text selection during swipe */
@@ -323,6 +323,3 @@ export const Dot = styled.button`
   }
 `
 
-/* 
-      color: ${props =>
-      props.isScrolled && !props.open ? "var(--color-dark)" : "var(--color-light)"}; */

@@ -16,7 +16,7 @@ export const PrimaryButton = styled(Link)`
   /* your CTA button styling */
 `
 
-export const SecondaryButton = styled(Link)`
+export const SecondaryButton = styled.div`
   text-transform: uppercase;
   letter-spacing: 3px;
   text-decoration: none;

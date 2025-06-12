@@ -14,7 +14,7 @@ export const FeaturedProjectItemWrapper = styled.article`
 
   // here
   margin-bottom: ${props =>
-    props.currentSlug === "portfolio" ? "var(--space-md)" : "0"};
+    props.$currentSlug === "portfolio" ? "var(--space-md)" : "0"};
 
   &:hover {
     opacity: 0.9;
@@ -27,7 +27,7 @@ export const FeaturedProjectItemWrapper = styled.article`
   @media only screen and (min-width: 768px) {
     /* margin-bottom: var(--space-gap); */
     margin-bottom: ${props =>
-      props.currentSlug === "portfolio"
+      props.$currentSlug === "portfolio"
         ? "var(--space-md)"
         : "var(--space-gap)"};
 

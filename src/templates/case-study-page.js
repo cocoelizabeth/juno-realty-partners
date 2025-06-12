@@ -128,7 +128,9 @@ export const query = graphql`
       otherOverviewFacts
       openingImage {
         description
-        gatsbyImageData(layout: CONSTRAINED)
+        gatsbyImageData(
+        layout: CONSTRAINED
+        )
       }
       project {
         title
@@ -149,7 +151,9 @@ export const query = graphql`
               __typename
               ... on ContentfulAsset {
                 contentful_id
-                gatsbyImageData(layout: CONSTRAINED)
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  )
                 description
               }
               ... on ContentfulQuote {
@@ -172,7 +176,9 @@ export const query = graphql`
       }
       gallery {
         description
-        gatsbyImageData(layout: CONSTRAINED)
+        gatsbyImageData(
+          layout: CONSTRAINED
+        )
       }
       moreFeaturedProjects {
         slug
@@ -180,7 +186,7 @@ export const query = graphql`
         projectNameForCaseStudy
         project {
           heroImage {
-            gatsbyImageData
+            gatsbyImageData 
             description
           }
         }

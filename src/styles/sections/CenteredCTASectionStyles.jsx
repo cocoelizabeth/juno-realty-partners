@@ -11,16 +11,16 @@ export const SectionWrapper = styled.section`
   justify-content: center;
   margin: 0 auto;
   padding-bottom: ${props =>
-    props.currentSlug === "about" ? "var(--space-lg)" : "var(--space-xl)"};
+    props.$currentSlug === "about" ? "var(--space-lg)" : "var(--space-xl)"};
 
   @media only screen and (min-width: 480px) {
     padding-bottom: ${props =>
-      props.currentSlug === "about" ? "40px" : "var(--space-xl)"};
+      props.$currentSlug === "about" ? "40px" : "var(--space-xl)"};
   }
 
   @media only screen and (min-width: 768px) {
     padding-bottom: ${props =>
-      props.currentSlug === "about" ? "60px" : "var(--space-xl)"};
+      props.$currentSlug === "about" ? "60px" : "var(--space-xl)"};
   }
 
   @media only screen and (min-width: 928px) {

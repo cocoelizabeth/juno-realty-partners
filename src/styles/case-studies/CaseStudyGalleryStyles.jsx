@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
-import { SecondaryButton } from "../ButtonStyles"
 
 /**
  * The wrapper for the entire gallery slider
@@ -74,7 +72,7 @@ export const PrevButton = styled.button`
   background: none;
   left: 0;
   filter: drop-shadow(2px 2px 7px #000);
-   /* background-color:rgba(0,0,0, .5); */
+  /* background-color:rgba(0,0,0, .5); */
 
   svg {
     height: 25px;
@@ -159,7 +157,7 @@ export const Dot = styled.button`
   border-radius: 50%;
   border: none;
   background: ${props =>
-    props.selected ? "var(--color-dark)" : "var(--color-medium)"};
+    props.$selected ? "var(--color-dark)" : "var(--color-medium)"};
   transition: background 0.2s ease;
   cursor: pointer !important;
   &:hover {

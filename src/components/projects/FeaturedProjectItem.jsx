@@ -24,7 +24,7 @@ export default function FeaturedProjectItem({ featuredProject, currentSlug }) {
     : `/projects/${featuredProject.slug}`
 
   return (
-    <FeaturedProjectItemWrapper currentSlug={currentSlug}>
+    <FeaturedProjectItemWrapper $currentSlug={currentSlug}>
       <ProjectImageLink to={ctaLink} className="featured-project-image-wrapper">
         <GatsbyImage
           image={heroImage.gatsbyImageData}
@@ -41,7 +41,7 @@ export default function FeaturedProjectItem({ featuredProject, currentSlug }) {
         <h3 className="featured-project-name">{projectName}</h3>
         <p className="featured-project-location">{location}</p>
         <p className="featured-case-study-title">{caseStudyTitle}</p>
-        <SecondaryButton to={ctaLink}><div>Learn More</div></SecondaryButton>
+        <SecondaryButton><div>Learn More</div></SecondaryButton>
       </FeaturedProjectTextWrapper>
     </FeaturedProjectItemWrapper>
   )

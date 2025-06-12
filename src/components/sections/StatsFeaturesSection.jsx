@@ -1,5 +1,4 @@
 import React from "react"
-import StatisticItem from "../statistics/StatisticItem"
 import {
   StatsFeaturesSectionWrapper,
   StatsWrapper,

@@ -12,7 +12,7 @@ import {
 } from "../../styles/sections/AccordionSectionStyles"
 
 import { Bold, Italic } from "../../styles/accordion/RichTextStyles"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 const richTextOptions = {
   renderMark: {
     [MARKS.BOLD]: text => <Bold>{text}</Bold>,
@@ -58,7 +58,7 @@ export default function AccordionSection({ sectionHeading, features }) {
                      (e.g. `content: isOpen ? "–" : "+";`)
                   2) Render an explicit <span> here
                 */}
-                <AccordionIcon isOpen={isOpen} />
+                <AccordionIcon $isOpen={isOpen} />
               </AccordionItemTitle>
 
               {/*

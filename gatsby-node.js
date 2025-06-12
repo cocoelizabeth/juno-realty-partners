@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             ogMetaDescription
             featuredImage {
               description
-              gatsbyImageData
+              gatsbyImageData 
             }
             noindex
             nofollow

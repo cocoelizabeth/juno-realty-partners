@@ -113,9 +113,9 @@ export default function Header() {
 
 
   return (
-    <HeaderContainer isScrolled={useBlackStyle}>
+    <HeaderContainer $isScrolled={useBlackStyle}>
       <Inner>
-        <LogoLink to="/" isScrolled={useBlackStyle}>
+        <LogoLink to="/" $isScrolled={useBlackStyle}>
           <GatsbyImage
             image={useBlackStyle ? scrolledLogo : initialLogo}
             alt={useBlackStyle ? initialAltText : scrolledAltText}
@@ -125,14 +125,14 @@ export default function Header() {
         </LogoLink>
 
         <MobileToggle
-          open={open}
-          isScrolled={useBlackStyle}
+         $open={open}
+          $isScrolled={useBlackStyle}
           onClick={() => setOpen(o => !o)}
         >
           {open ? <MdClose /> : <MdMenu />}
         </MobileToggle>
 
-        <Nav open={open}>
+        <Nav $open={open}>
           <NavList>
             {nav.links.map(link => {
               // make sure slug starts with "/"
@@ -150,7 +150,7 @@ export default function Header() {
                     to={path}
                     activeClassName="active"
                     onClick={() => setOpen(false)}
-                    isScrolled={useBlackStyle}
+                    $isScrolled={useBlackStyle}
                   >
                     {link.pageTitle}
                   </NavLink>

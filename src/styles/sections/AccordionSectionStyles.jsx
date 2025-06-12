@@ -84,7 +84,7 @@ export const AccordionIcon = styled.span`
 
   /* Use a prop to decide whether to render “+” or “–” */
   &::before {
-    content: ${({ isOpen }) => (isOpen ? '"–"' : '"+"' )};
+    content: ${({ $isOpen }) => ($isOpen ? '"–"' : '"+"' )};
     color: #fff;
   }
 `;

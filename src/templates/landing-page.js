@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -168,8 +168,8 @@ export const query = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
             breakpoints: [375, 768, 1024, 1440]
+            formats: [AUTO, WEBP, AVIF]
           )
         }
       }
@@ -218,7 +218,11 @@ export const query = graphql`
             }
             photo {
               description
-              gatsbyImageData(aspectRatio: 0.8125)
+              gatsbyImageData(
+                aspectRatio: 0.8125
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
 
@@ -234,7 +238,11 @@ export const query = graphql`
               role
               heroImage {
                 description
-                gatsbyImageData(aspectRatio: 1.197)
+                gatsbyImageData (
+                 aspectRatio: 1.197
+                 placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
 
@@ -246,7 +254,10 @@ export const query = graphql`
               project {
                 heroImage {
                   description
-                  gatsbyImageData
+                  gatsbyImageData (
+                    formats: [AUTO, WEBP, AVIF]
+                    placeholder: BLURRED
+                  )
                 }
                 type
                 units

@@ -1,7 +1,7 @@
 // src/components/sections/TestimonialsSection.jsx
-import React, { useEffect, useState, useCallback, useRef } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import {
   QuoteSliderSectionWrapper,
   SliderViewport,
@@ -10,7 +10,6 @@ import {
   QuoteCard,
   QuoteText,
   AuthorLine,
-  ArrowButtonContainer,
   PrevButton,
   NextButton,
   DotsContainer,
@@ -18,9 +17,7 @@ import {
 } from "../../styles/sections/QuoteSliderStyles"
 import QuotationMark1 from "../../images/quotation-mark-1.svg"
 import useEmblaCarousel from "embla-carousel-react"
-import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
-import { LiaLongArrowAltLeftSolid } from "react-icons/lia";
-
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri"
 
 // Customize how the quote’s RichText is rendered
 const richTextOptions = {
@@ -51,10 +48,6 @@ export default function QuoteSliderSection({ quotes = [] }) {
   const slideRefs = useRef([])
   // const [maxHeight, setMaxHeight] = useState(0)
 
-  // Measure heights whenever window or Embla resizes
-  const resizeObserver = useRef(null)
-
-
   // Listen for embla’s “select” event to update dots
   useEffect(() => {
     if (!embla) return
@@ -73,22 +66,21 @@ export default function QuoteSliderSection({ quotes = [] }) {
 
   return (
     <QuoteSliderSectionWrapper>
-
-            <PrevButton onClick={scrollPrev} >
-              <RiArrowLeftSLine />
-            </PrevButton>
-            <NextButton onClick={scrollNext} >
-              <RiArrowRightSLine />
-            </NextButton>
+      <PrevButton onClick={scrollPrev}>
+        <RiArrowLeftSLine />
+      </PrevButton>
+      <NextButton onClick={scrollNext}>
+        <RiArrowRightSLine />
+      </NextButton>
       {/* Embla viewport & container */}
       <SliderViewport ref={viewportRef}>
         <SliderContainer>
           {quotes.map((item, index) => (
             // <Slide key={index} ref={el => (slideRefs.current[index] = el)}>
-            <Slide 
+            <Slide
               key={index}
               ref={el => (slideRefs.current[index] = el)}
-              isSelected={index === selectedIndex}
+              $isSelected={index === selectedIndex}
             >
               <QuoteCard>
                 <QuotationMark1
@@ -110,7 +102,7 @@ export default function QuoteSliderSection({ quotes = [] }) {
         </SliderContainer>
       </SliderViewport>
 
-            {/* —— Dots */}
+      {/* —— Dots */}
       <DotsContainer>
         {quotes.map((_, idx) => (
           <Dot
@@ -131,8 +123,6 @@ export default function QuoteSliderSection({ quotes = [] }) {
           →
         </NextButton>
       </ArrowButtonContainer> */}
-
-
     </QuoteSliderSectionWrapper>
   )
 }

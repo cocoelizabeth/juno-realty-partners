@@ -2,21 +2,17 @@
 import React, { useCallback, useState, useEffect } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import styled from "styled-components"
-import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri"
 
-
-
-
-import { 
-    EmblaViewport,
-    EmblaContainer,
-    EmblaSlide,
-    SlideImageWrapper,
-    PrevButton,
-    NextButton,
-    DotsContainer,
-    Dot
+import {
+  EmblaViewport,
+  EmblaContainer,
+  EmblaSlide,
+  SlideImageWrapper,
+  PrevButton,
+  NextButton,
+  DotsContainer,
+  Dot,
 } from "../../styles/case-studies/CaseStudyGalleryStyles"
 
 export default function CaseStudyGallery({ gallery }) {
@@ -59,7 +55,7 @@ export default function CaseStudyGallery({ gallery }) {
   return (
     <div style={{ position: "relative", width: "100%" }}>
       {/* Prev & Next Buttons */}
-         
+
       <PrevButton onClick={scrollPrev} disabled={!canScrollPrev}>
         <RiArrowLeftSLine />
       </PrevButton>
@@ -88,18 +84,17 @@ export default function CaseStudyGallery({ gallery }) {
         </EmblaContainer>
       </EmblaViewport>
 
-        <DotsContainer>
-            {gallery.map((_, idx) => (
-            <Dot
-                key={idx}
-                selected={idx === selectedIndex}
-                onClick={() => emblaApi && emblaApi.scrollTo(idx)}
-            />
-            ))}
-        </DotsContainer>
+      <DotsContainer>
+        {gallery.map((_, idx) => (
+          <Dot
+            key={idx}
+            $selected={idx === selectedIndex}
+            onClick={() => emblaApi && emblaApi.scrollTo(idx)}
+          />
+        ))}
+      </DotsContainer>
 
-
-{/* 
+      {/* 
                 <ArrowButtonContainer>
                 <PrevButton onClick={scrollPrev} aria-label="Previous testimonial">
                     ←
@@ -108,8 +103,6 @@ export default function CaseStudyGallery({ gallery }) {
                     →
                 </NextButton>
                 </ArrowButtonContainer> */}
-
-           
-        </div>
+    </div>
   )
 }

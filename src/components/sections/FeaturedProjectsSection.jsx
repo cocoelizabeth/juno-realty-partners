@@ -21,7 +21,7 @@ export default function FeaturedProjectsSection({
 }) {
   let path = ctaUrl.startsWith("/") ? ctaUrl : `/${ctaUrl}`
   return (
-    <FeaturedProjectsSectionWrapper currentSlug={currentSlug}>
+    <FeaturedProjectsSectionWrapper $currentSlug={currentSlug}>
       {showHeading && sectionHeading && (
         <SectionHeading>{sectionHeading}</SectionHeading>
       )}
@@ -30,7 +30,7 @@ export default function FeaturedProjectsSection({
         <Disclaimer>{disclaimer}</Disclaimer>
       )}
 
-      <FeaturedProjectsItemsWrapper currentSlug={currentSlug} >
+      <FeaturedProjectsItemsWrapper $currentSlug={currentSlug} >
         {projects.map(project => {
           return (
             <FeaturedProjectItem

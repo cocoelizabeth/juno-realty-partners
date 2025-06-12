@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import {
   FooterWrapper,
@@ -14,7 +14,7 @@ import {
   CtaText,
   ContactItem,
 } from "../styles/FooterStyles"
-import Logo from "../images/juno-realty-partners-logo-white.svg"
+
 
 export default function Footer() {
   // run your Contentful query

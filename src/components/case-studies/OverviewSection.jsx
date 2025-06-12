@@ -2,9 +2,9 @@ import React from "react"
 import { OverviewSectionStyles } from "../../styles/case-studies/CaseStudyPageStyles"
 
 export default function OverviewSection({ projectFacts, otherOverviewFacts, projectNameForCaseStudy}) {
-    const title = projectFacts.title;
+    // const title = projectFacts.title;
+    // const type = projectFacts.type;
     const units = projectFacts.units;
-    const type = projectFacts.type;
     const status = projectFacts.status;
     const role = projectFacts.role;
 
