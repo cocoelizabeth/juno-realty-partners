@@ -167,9 +167,9 @@ export const query = graphql`
           description
           gatsbyImageData(
             layout: FULL_WIDTH
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
-            breakpoints: [640, 960, 1280, 1920]
+            breakpoints: [375, 768, 1024, 1440]
           )
         }
       }

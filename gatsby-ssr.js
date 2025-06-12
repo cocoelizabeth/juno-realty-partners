@@ -1,18 +1,12 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
- */
-
 const React = require("react")
 
 /** @type {import('gatsby').GatsbySSR['onRenderBody']} */
 exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
-  // Set the <html lang="en">
   setHtmlAttributes({ lang: "en" })
 
-  // Inject the Adobe Fonts stylesheet link
+
   setHeadComponents([
+      <link rel="preconnect" href="https://images.ctfassets.net" key="ctf-preconnect" />,
       <link
       key="preconnect-typekit"
       rel="preconnect"

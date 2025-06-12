@@ -64,12 +64,7 @@ export default function Header() {
     }
   }, [open])
 
-  // On scroll, flip isScrolled when you’ve moved down
-  // useEffect(() => {
-  //   const handler = () => setIsScrolled(window.scrollY > 0)
-  //   window.addEventListener("scroll", handler)
-  //   return () => window.removeEventListener("scroll", handler)
-  // }, [])
+
 
    useEffect(() => {
    const handler = () => setIsScrolled(window.scrollY > 0)

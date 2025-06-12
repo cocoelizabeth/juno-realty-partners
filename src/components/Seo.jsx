@@ -45,7 +45,6 @@ export default function Seo({
 
   const metaImage = image ? image.images.fallback.src : null
 
-    
   // ——— Build the JSON-LD graph ———
   const structuredData = {
     "@context": "https://schema.org",
@@ -80,21 +79,17 @@ export default function Seo({
 
   return (
     <Helmet>
+      {/* Preload image */}
+      <link rel="preconnect" href="https://images.ctfassets.net" crossOrigin />
+      {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+     
       {/* Primary tags */}
       <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
       <meta name="description" content={seoDescription} />
 
       {/* Canonical Tag: always non-www.siteUrl + path */}
       <link rel="canonical" href={canonicalUrl} />
-      
-      <link rel="preconnect" href="https://images.ctfassets.net" crossOrigin />
-     {preloadImage && (
-       <link
-         rel="preload"
-         as="image"
-         href={preloadImage}
-       />
-     )}
+
       {/* Robots */}
       {(noindex || nofollow) && (
         <meta
