@@ -6,10 +6,10 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Juno Realty Partners`,
+    title: `Juno Realty Partners LLC`,
     description: `Want to sell your land or develop it with a partner? Juno offers creative,  tailored strategies that maximize land value and overcome site challenges.`,
     author: `John Favreau`,
-    siteUrl: `https://junorp.com/`,
+    siteUrl: `https://junorp.com`,
     logo: `/images/juno-realty-partners-logo-black.svg`,
   },
   plugins: [
@@ -66,8 +66,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
-        exclude: [`/404/`],
+        output: `/`,
+        createLinkInHead: true,
       },
     },
     {
