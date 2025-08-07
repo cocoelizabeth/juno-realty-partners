@@ -3,6 +3,24 @@ const path = require("path")
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
+
+
+// exports.onCreatePage = ({ page, actions }) => {
+//   const { createPage, deletePage } = actions
+
+//   deletePage(page)
+//   // You can access the variables "changeFreq" and "priority" in your page queries now
+//   createPage({
+//     ...page,
+//     context: {
+//       ...page.context,
+//       changeFreq: `weekly`,
+//       priority: `0.7`,
+//     },
+//   })
+// };
+
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 

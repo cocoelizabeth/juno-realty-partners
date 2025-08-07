@@ -67,6 +67,7 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/`,
+        entryLimit: 5000,
         createLinkInHead: true,
       },
     },
