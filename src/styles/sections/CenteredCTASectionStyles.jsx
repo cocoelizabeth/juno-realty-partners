@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { PrimaryButton } from "../ButtonStyles"
 
 export const SectionWrapper = styled.section`
   text-align: center;
@@ -40,12 +41,16 @@ export const Title = styled.h2`
   }
 ` 
 export const Body = styled.div`
-
   @media only screen and (min-width: 480px) {
     max-width: 550px;
   }
 
   @media only screen and (min-width: 768px) {
     max-width: 750px;
+  }
+
+  /* 👇 space only when button follows Body */
+  & + ${PrimaryButton} {
+    margin-top: var(--space-md);
   }
 `
