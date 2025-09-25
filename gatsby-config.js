@@ -74,8 +74,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://junorp.com`,
-        sitemap: `https://junorp.com/sitemap-0.xml`,
+        host: `junorp.com`,
+        sitemap: `https://junorp.com/sitemap.xml`,
         policy: [
           {
             userAgent: `*`,
